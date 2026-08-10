@@ -3,177 +3,526 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>[전략기획팀] 팀 스킬 카탈로그</title>
+<title>[전략기획팀] 업무자동화 스테이션</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
   :root{
-    --paper:#EEF2F8; --card:#FFFFFF; --card-2:#F5F8FC;
-    --ink:#151C27; --ink-soft:#55616F; --ink-faint:#93A0B0;
-    --line:#E3E9F1; --line-strong:#CFDAE7;
+    --paper:#EEF2F8; --card:#FFFFFF; --card-2:#F5F8FC; --raise:#FFFFFF;
+    --ink:#151C27; --ink-soft:#55616F; --ink-faint:#93A0B0; --line:#E3E9F1; --line-strong:#CFDAE7;
     --primary:#2666E0; --primary-bg:#E8F0FD; --primary-line:#BAD3F6;
     --live:#1A8A5A; --live-bg:#DDF1E7; --live-line:#A6DBC2;
+    --edit:#BE7810; --edit-bg:#FBEFD5; --edit-line:#EBCB93;
+    --del:#CC3B30; --del-bg:#FBE7E4; --del-line:#F0B7B0;
     --routine:#585FC7; --routine-bg:#E7E8F8; --routine-line:#C2C4EE;
     --shadow:0 1px 2px rgba(28,40,54,.04),0 8px 22px -14px rgba(28,40,54,.18);
-    --font:"Pretendard Variable","Pretendard",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
-    --mono:"SFMono-Regular","D2Coding",ui-monospace,Menlo,monospace;
+    --shadow-lg:0 24px 60px -20px rgba(28,40,54,.34);
+    --r:13px;
+    --font:"Pretendard Variable","Pretendard","Noto Sans KR",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+    --mono:"SFMono-Regular","JetBrains Mono","D2Coding",ui-monospace,Menlo,monospace;
   }
   @media (prefers-color-scheme:dark){:root{
-    --paper:#12151B; --card:#1B2029; --card-2:#212734;
-    --ink:#E9EDF3; --ink-soft:#AAB4C1; --ink-faint:#7C8797;
-    --line:#2A313D; --line-strong:#3A4350;
+    --paper:#12151B; --card:#1B2029; --card-2:#212734; --raise:#262D3A;
+    --ink:#E9EDF3; --ink-soft:#AAB4C1; --ink-faint:#7C8797; --line:#2A313D; --line-strong:#3A4350;
     --primary:#5E9BF2; --primary-bg:#182842; --primary-line:#2E4A72;
     --live:#40C08A; --live-bg:#123027; --live-line:#245043;
+    --edit:#E0A44A; --edit-bg:#332811; --edit-line:#5A4527;
+    --del:#F0837A; --del-bg:#3A1D1A; --del-line:#5E2E28;
     --routine:#9096E8; --routine-bg:#232544; --routine-line:#3C3F68;
     --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 30px -16px rgba(0,0,0,.7);
+    --shadow-lg:0 30px 70px -20px rgba(0,0,0,.8);
   }}
   :root[data-theme="dark"]{
-    --paper:#12151B; --card:#1B2029; --card-2:#212734;
-    --ink:#E9EDF3; --ink-soft:#AAB4C1; --ink-faint:#7C8797;
-    --line:#2A313D; --line-strong:#3A4350;
+    --paper:#12151B; --card:#1B2029; --card-2:#212734; --raise:#262D3A;
+    --ink:#E9EDF3; --ink-soft:#AAB4C1; --ink-faint:#7C8797; --line:#2A313D; --line-strong:#3A4350;
     --primary:#5E9BF2; --primary-bg:#182842; --primary-line:#2E4A72;
     --live:#40C08A; --live-bg:#123027; --live-line:#245043;
+    --edit:#E0A44A; --edit-bg:#332811; --edit-line:#5A4527;
+    --del:#F0837A; --del-bg:#3A1D1A; --del-line:#5E2E28;
     --routine:#9096E8; --routine-bg:#232544; --routine-line:#3C3F68;
     --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 30px -16px rgba(0,0,0,.7);
+    --shadow-lg:0 30px 70px -20px rgba(0,0,0,.8);
   }
   :root[data-theme="light"]{
-    --paper:#EEF2F8; --card:#FFFFFF; --card-2:#F5F8FC;
-    --ink:#151C27; --ink-soft:#55616F; --ink-faint:#93A0B0;
-    --line:#E3E9F1; --line-strong:#CFDAE7;
+    --paper:#EEF2F8; --card:#FFFFFF; --card-2:#F5F8FC; --raise:#FFFFFF;
+    --ink:#151C27; --ink-soft:#55616F; --ink-faint:#93A0B0; --line:#E3E9F1; --line-strong:#CFDAE7;
     --primary:#2666E0; --primary-bg:#E8F0FD; --primary-line:#BAD3F6;
     --live:#1A8A5A; --live-bg:#DDF1E7; --live-line:#A6DBC2;
+    --edit:#BE7810; --edit-bg:#FBEFD5; --edit-line:#EBCB93;
+    --del:#CC3B30; --del-bg:#FBE7E4; --del-line:#F0B7B0;
     --routine:#585FC7; --routine-bg:#E7E8F8; --routine-line:#C2C4EE;
     --shadow:0 1px 2px rgba(28,40,54,.04),0 8px 22px -14px rgba(28,40,54,.18);
+    --shadow-lg:0 24px 60px -20px rgba(28,40,54,.34);
   }
   *{box-sizing:border-box;}
   body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);line-height:1.55;-webkit-font-smoothing:antialiased;}
   button{font-family:inherit;cursor:pointer;}
-  .wrap{max-width:880px;margin:0 auto;padding:0 20px;}
-  header.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);}
-  .toprow{display:flex;align-items:center;gap:12px;height:58px;}
-  .logo{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(140deg,var(--primary),#57a0f0);color:#fff;font-size:15px;flex:none;box-shadow:var(--shadow);}
-  .ttl{font-weight:800;font-size:15px;letter-spacing:-.01em;white-space:nowrap;}
-  .stamp{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--ink-faint);white-space:nowrap;font-variant-numeric:tabular-nums;}
-  .theme{border:1px solid var(--line);background:var(--card);color:var(--ink-soft);border-radius:9px;width:34px;height:34px;font-size:14px;flex:none;}
-  main{padding:24px 0 70px;}
-  h1{font-size:clamp(20px,3vw,25px);font-weight:800;letter-spacing:-.02em;margin:0 0 6px;text-wrap:balance;}
-  .sub{margin:0;color:var(--ink-soft);font-size:13.5px;}
-  .sub b{color:var(--ink);}
-  .notice{display:flex;gap:10px;align-items:flex-start;background:var(--primary-bg);border:1px solid var(--primary-line);border-radius:11px;padding:11px 14px;margin:16px 0 20px;font-size:13px;line-height:1.6;}
-  .notice b{color:var(--primary);}
-  .tools{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:12px;}
-  .search{flex:1;min-width:220px;position:relative;}
-  .search input{width:100%;border:1px solid var(--line-strong);background:var(--card);color:var(--ink);border-radius:10px;padding:9px 13px 9px 34px;font-size:14px;outline:none;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px;}
+
+  .topbar{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 88%,transparent);
+    backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line);}
+  .topbar .row{display:flex;align-items:center;gap:16px;height:60px;}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.01em;font-size:15.5px;white-space:nowrap;}
+  .brand .logo{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;
+    background:linear-gradient(140deg,var(--primary),#57a0f0);color:#fff;font-size:15px;box-shadow:var(--shadow);}
+  nav.tabs{display:flex;gap:4px;margin-left:6px;flex:1;overflow-x:auto;}
+  .tab{border:1px solid transparent;background:transparent;color:var(--ink-soft);font-weight:700;font-size:14px;
+    padding:8px 14px;border-radius:10px;display:flex;align-items:center;gap:7px;white-space:nowrap;transition:.15s;}
+  .tab:hover{background:var(--card-2);color:var(--ink);}
+  .tab.active{background:var(--card);color:var(--primary);border-color:var(--line);box-shadow:var(--shadow);}
+  .tab .badge{font-family:var(--mono);font-size:11px;font-weight:700;background:var(--edit);color:#fff;
+    border-radius:999px;padding:1px 7px;min-width:18px;text-align:center;}
+  .tab .badge.zero{background:var(--line-strong);color:var(--ink-faint);}
+  .theme-btn{border:1px solid var(--line);background:var(--card);color:var(--ink-soft);border-radius:9px;
+    width:36px;height:36px;font-size:15px;display:grid;place-items:center;flex:none;}
+
+  .view{padding:22px 0 64px;}
+  .vhead{margin-bottom:16px;}
+  .vhead h1{font-size:clamp(21px,3vw,27px);font-weight:800;letter-spacing:-.02em;margin:0 0 6px;}
+  .vhead p{margin:0;color:var(--ink-soft);font-size:14px;max-width:72ch;}
+  .vhead p+p{margin-top:3px;}
+  .vhead p b{color:var(--ink);}
+
+  .banner{display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:var(--primary-bg);
+    border:1px solid var(--primary-line);border-radius:12px;padding:12px 15px;margin-bottom:18px;}
+  .banner .bi{font-size:18px;}
+  .banner .bt{flex:1;min-width:220px;font-size:13px;color:var(--ink);}
+  .banner .bt b{color:var(--primary);}
+  .banner input{flex:2;min-width:220px;border:1px solid var(--primary-line);background:var(--card);color:var(--ink);
+    border-radius:9px;padding:9px 12px;font-size:13px;font-family:var(--mono);outline:none;}
+  .banner button{border:none;background:var(--primary);color:#fff;font-weight:700;font-size:13px;padding:9px 16px;border-radius:9px;}
+  .banner.ok{background:var(--live-bg);border-color:var(--live-line);}
+  .banner.ok .bt b{color:var(--live);}
+
+  .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px;}
+  .search{flex:1;min-width:200px;position:relative;}
+  .search input{width:100%;border:1px solid var(--line-strong);background:var(--card);color:var(--ink);
+    border-radius:11px;padding:10px 14px 10px 36px;font-size:14px;outline:none;}
   .search input:focus{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-bg);}
-  .search .si{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--ink-faint);font-size:13px;}
+  .search .si{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--ink-faint);font-size:14px;}
+  .listtools{display:flex;gap:8px;align-items:center;}
+  .lbtn{border:1px solid var(--line-strong);background:var(--card);color:var(--ink-soft);font-weight:600;font-size:12.5px;padding:7px 11px;border-radius:9px;}
+  .lbtn:hover{color:var(--ink);}
   .filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px;}
-  .fbtn{border:1px solid var(--line-strong);background:var(--card);color:var(--ink-soft);font-weight:600;font-size:12.5px;padding:6px 12px;border-radius:999px;transition:.15s;}
+  .fbtn{border:1px solid var(--line-strong);background:var(--card);color:var(--ink-soft);font-weight:600;font-size:12.5px;padding:7px 12px;border-radius:999px;transition:.15s;}
+  .fbtn:hover{color:var(--ink);}
   .fbtn.active{background:var(--primary);color:#fff;border-color:var(--primary);}
+  .fbtn.routine.active{background:var(--routine);border-color:var(--routine);}
+
   .catsec{margin-bottom:24px;}
-  .ch{display:flex;align-items:center;gap:8px;margin:0 0 10px;}
-  .ch .cico{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;font-size:13px;background:var(--card-2);border:1px solid var(--line);}
-  .ch h2{margin:0;font-size:15px;font-weight:800;}
-  .ch .cnt{font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);font-weight:600;}
+  .catsec>.ch{display:flex;align-items:center;gap:9px;margin:0 0 10px;}
+  .catsec .ch .cico{width:24px;height:24px;border-radius:7px;display:grid;place-items:center;font-size:13px;background:var(--card-2);border:1px solid var(--line);}
+  .catsec .ch h2{margin:0;font-size:15px;font-weight:800;letter-spacing:-.01em;}
+  .catsec .ch .cnt{font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);font-weight:600;}
   .cards{display:flex;flex-direction:column;gap:8px;}
-  .scard{background:var(--card);border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);overflow:hidden;transition:border-color .15s;}
-  .scard.open{border-color:var(--primary-line);}
-  .chead{display:flex;align-items:center;gap:11px;padding:12px 12px 12px 15px;cursor:pointer;}
-  .nm{flex:none;font-weight:800;font-size:13.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:40%;}
-  .sep{flex:none;width:1px;height:12px;background:var(--line-strong);}
-  .one{flex:1;min-width:0;font-size:12.5px;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  @media (max-width:600px){.chead{flex-wrap:wrap;}.nm{max-width:100%;}.sep{display:none;}.one{width:100%;flex-basis:100%;}}
-  .rdot{width:7px;height:7px;border-radius:50%;background:var(--routine);flex:none;}
-  .go{border:1px solid var(--primary);background:var(--primary);color:#fff;font-weight:700;font-size:12px;padding:6px 11px;border-radius:8px;white-space:nowrap;flex:none;}
-  .tg{border:1px solid var(--line-strong);background:var(--card);color:var(--ink-faint);width:28px;height:28px;border-radius:8px;font-size:10px;display:grid;place-items:center;transition:.18s;flex:none;}
-  .scard.open .tg{transform:rotate(180deg);color:var(--primary);border-color:var(--primary-line);}
-  .cbody{display:none;border-top:1px solid var(--line);padding:13px 15px;background:var(--card-2);}
+
+  .scard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden;transition:border-color .15s,box-shadow .15s;}
+  .scard:hover{border-color:var(--line-strong);}
+  .scard.open{border-color:var(--primary-line);box-shadow:var(--shadow-lg);}
+  .chead{display:flex;align-items:center;gap:12px;padding:13px 12px 13px 16px;cursor:pointer;}
+  .ctoggle{flex:1;min-width:0;border:none;background:transparent;text-align:left;display:flex;flex-direction:row;align-items:center;gap:9px;padding:0;color:var(--ink);}
+  .ctoggle .nm{flex:none;font-weight:800;font-size:14px;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:38%;}
+  .ctoggle .dots{flex:none;}
+  .ctoggle .sep{flex:none;width:1px;height:12px;background:var(--line-strong);}
+  .schtag{flex:none;font-size:10px;font-weight:700;color:var(--routine);background:var(--routine-bg);border:1px solid var(--routine-line);border-radius:999px;padding:1px 7px;white-space:nowrap;}
+  .subbtns{display:flex;gap:7px;flex-wrap:wrap;margin:-4px 0 8px;}
+  .subbtn{border:1px solid var(--line-strong);background:var(--card-2);color:var(--ink);font-weight:700;font-size:12px;padding:7px 11px;border-radius:8px;display:inline-flex;align-items:center;gap:5px;}
+  .subbtn:hover{border-color:var(--primary);color:var(--primary);}
+  .subbtn.rt:hover{border-color:var(--routine);color:var(--routine);}
+  .ctoggle .one{flex:1;min-width:0;font-size:12.5px;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;line-height:1.4;}
+  @media (max-width:600px){.ctoggle{flex-direction:column;align-items:flex-start;gap:3px;} .ctoggle .nm{max-width:100%;} .ctoggle .sep{display:none;} .ctoggle .one{width:100%;}}
+  .dots{display:flex;gap:4px;flex:none;}
+  .dot{width:7px;height:7px;border-radius:50%;}
+  .dot.live{background:var(--live);} .dot.routine{background:var(--routine);} .dot.rev{background:var(--edit);} .dot.del{background:var(--del);}
+  .chz{display:flex;align-items:center;gap:6px;flex:none;}
+  .applybtn{background:var(--primary);color:#fff;border:1px solid var(--primary);font-weight:700;font-size:12.5px;padding:7px 13px;border-radius:9px;white-space:nowrap;display:flex;align-items:center;gap:5px;transition:.15s;}
+  .applybtn:hover{filter:brightness(1.07);}
+  .tgbtn{border:1px solid var(--line-strong);background:var(--card);color:var(--ink-faint);width:30px;height:30px;border-radius:8px;font-size:11px;display:grid;place-items:center;transition:.18s;flex:none;}
+  .tgbtn:hover{color:var(--ink);}
+  .scard.open .tgbtn{transform:rotate(180deg);color:var(--primary);border-color:var(--primary-line);}
+  .cbody{display:none;border-top:1px solid var(--line);padding:13px 14px;background:var(--card-2);}
   .scard.open .cbody{display:block;}
-  .desc{margin:0 0 11px;font-size:13px;line-height:1.65;color:var(--ink);}
-  .trigs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:11px;}
-  .trig{font-family:var(--mono);font-size:11.5px;background:var(--card);border:1px solid var(--line-strong);border-radius:999px;padding:4px 11px;color:var(--ink-soft);}
-  .pillrow{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px;}
-  .pill{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:999px;}
+  .cbody .desc{margin:0 0 11px;color:var(--ink);font-size:13px;line-height:1.62;}
+  .rowpills{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px;}
+  .pill{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:999px;display:inline-flex;align-items:center;gap:4px;}
   .pill.live{color:var(--live);background:var(--live-bg);border:1px solid var(--live-line);}
   .pill.routine{color:var(--routine);background:var(--routine-bg);border:1px solid var(--routine-line);}
-  .meta{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--ink-faint);flex-wrap:wrap;font-variant-numeric:tabular-nums;}
-  .meta .av{width:16px;height:16px;border-radius:50%;background:var(--primary);color:#fff;font-size:9px;font-weight:800;display:inline-grid;place-items:center;vertical-align:-3px;margin-right:4px;}
-  .empty{text-align:center;padding:50px 20px;color:var(--ink-faint);}
-  .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--ink);color:var(--paper);font-weight:700;font-size:13px;padding:11px 17px;border-radius:10px;opacity:0;pointer-events:none;transition:.25s;z-index:50;max-width:90vw;}
-  .toast.show{opacity:1;transform:translateX(-50%);}
+  .pill.rev{color:var(--edit);background:var(--edit-bg);border:1px solid var(--edit-line);}
+  .pill.del{color:var(--del);background:var(--del-bg);border:1px solid var(--del-line);}
+  .cmeta2{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--ink-faint);font-variant-numeric:tabular-nums;flex-wrap:wrap;margin-bottom:12px;}
+  .cmeta2 .tag{font-weight:700;padding:2px 7px;border-radius:999px;font-size:10.5px;}
+  .cmeta2 .tag.n{color:var(--primary);background:var(--primary-bg);border:1px solid var(--primary-line);}
+  .cmeta2 .tag.e{color:var(--edit);background:var(--edit-bg);border:1px solid var(--edit-line);}
+  .cmeta2 .who{margin-left:auto;display:inline-flex;align-items:center;gap:5px;}
+  .cmeta2 .who .av{width:16px;height:16px;border-radius:50%;background:var(--primary);color:#fff;font-size:9px;font-weight:800;display:grid;place-items:center;}
+  .acts{display:flex;gap:7px;}
+  .abtn{flex:1;border:1px solid var(--line-strong);background:var(--card);color:var(--ink);font-weight:700;font-size:12.5px;padding:9px 6px;border-radius:9px;transition:.15s;display:flex;align-items:center;justify-content:center;gap:5px;}
+  .abtn:hover{border-color:var(--ink-faint);}
+  .abtn.edit{background:var(--edit-bg);color:var(--edit);border-color:var(--edit-line);}
+  .abtn.del{background:var(--del-bg);color:var(--del);border-color:var(--del-line);}
+
+  .empty{text-align:center;padding:56px 20px;color:var(--ink-faint);}
+  .empty .big{font-size:38px;margin-bottom:10px;}
+  .empty h3{margin:0 0 6px;color:var(--ink-soft);font-size:15.5px;}
+
+  .qgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start;}
+  @media (max-width:800px){.qgrid{grid-template-columns:1fr;}}
+  .qpanel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:15px 15px 13px;}
+  .qpanel .rh{margin-bottom:12px;}
+  .qpanel .qcard{box-shadow:none;background:var(--card-2);}
+  .qempty{border:1.5px dashed var(--line-strong);border-radius:10px;padding:24px 12px;text-align:center;color:var(--ink-faint);font-size:12.5px;line-height:1.6;background:var(--card-2);}
+  .qgrid .diff{grid-template-columns:1fr;}
+  .rsec{margin-bottom:26px;}
+  .rh{display:flex;align-items:center;gap:9px;margin:0 0 12px;}
+  .rt{font-weight:800;font-size:14px;padding:5px 13px;border-radius:9px;}
+  .rt.edit{color:var(--edit);background:var(--edit-bg);border:1px solid var(--edit-line);}
+  .rt.del{color:var(--del);background:var(--del-bg);border:1px solid var(--del-line);}
+  .rc{font-family:var(--mono);font-size:12px;color:var(--ink-faint);font-weight:700;}
+  .gsec{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:18px 20px;margin-bottom:12px;}
+  .gsec h2{margin:0 0 12px;font-size:16px;font-weight:800;display:flex;align-items:center;gap:9px;}
+  .gsec .gn{width:24px;height:24px;border-radius:7px;background:var(--primary);color:#fff;display:grid;place-items:center;font-size:12.5px;font-weight:800;flex:none;}
+  .gsec p{margin:0;color:var(--ink-soft);font-size:14px;line-height:1.65;}
+  .gsec p b,.gsec li b{color:var(--ink);font-weight:700;}
+  .gsec ul{margin:2px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px;}
+  .gsec li{font-size:13.5px;color:var(--ink-soft);line-height:1.55;display:flex;gap:10px;}
+  .gsec li .k{flex:none;font-weight:800;color:var(--primary);min-width:66px;}
+  .gbtn{margin-top:14px;background:var(--primary);color:#fff;font-weight:700;font-size:13.5px;padding:9px 16px;border-radius:9px;border:1px solid var(--primary);}
+  .gbtn:hover{filter:brightness(1.07);}
+  .qcard{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--edit);border-radius:var(--r);box-shadow:var(--shadow);padding:16px 16px 14px;margin-bottom:11px;}
+  .qcard.del{border-left-color:var(--del);}
+  .qcard .qh{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:11px;}
+  .qcard .qh .nm{font-weight:800;font-size:15px;}
+  .qcard .qh .qmeta{margin-left:auto;font-size:11.5px;color:var(--ink-faint);font-variant-numeric:tabular-nums;}
+  .diff{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:11px;}
+  @media (max-width:600px){.diff{grid-template-columns:1fr;}}
+  .box{border:1px solid var(--line);border-radius:9px;overflow:hidden;background:var(--card-2);}
+  .box .bh{font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:6px 11px;border-bottom:1px solid var(--line);color:var(--ink-faint);}
+  .box.after .bh{color:var(--live);}
+  .box pre,.codeblk{margin:0;padding:11px;font-family:var(--mono);font-size:11px;line-height:1.5;color:var(--ink-soft);white-space:pre-wrap;word-break:break-word;max-height:210px;overflow:auto;}
+  .codeblk{background:var(--card-2);border:1px solid var(--line);border-radius:9px;}
+  .qnote{font-size:12.5px;color:var(--ink-soft);background:var(--card-2);border:1px solid var(--line);border-radius:8px;padding:9px 11px;margin-bottom:11px;}
+  .qacts{display:flex;gap:7px;flex-wrap:wrap;}
+  .btn{border:1px solid var(--line-strong);background:var(--card);color:var(--ink);font-weight:700;font-size:13px;padding:9px 15px;border-radius:9px;transition:.15s;display:inline-flex;align-items:center;gap:6px;}
+  .btn:hover{border-color:var(--ink-faint);}
+  .btn.ok{background:var(--live);color:#fff;border-color:var(--live);}
+  .btn.ok:hover{filter:brightness(1.06);}
+  .btn.pri{background:var(--primary);color:#fff;border-color:var(--primary);}
+  .btn.del{background:var(--del);color:#fff;border-color:var(--del);}
+  .btn.del:hover{filter:brightness(1.06);}
+  .btn.danger{color:#c0392b;} :root[data-theme="dark"] .btn.danger{color:#ff8a80;}
+  .btn.ghost{background:transparent;}
+
+  .scrim{position:fixed;inset:0;background:rgba(15,22,33,.55);backdrop-filter:blur(3px);z-index:60;display:flex;align-items:flex-start;justify-content:center;padding:40px 18px;overflow:auto;opacity:0;pointer-events:none;transition:.18s;}
+  .scrim.show{opacity:1;pointer-events:auto;}
+  .modal{background:var(--card);border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow-lg);width:100%;max-width:620px;transform:translateY(8px) scale(.99);transition:.18s;}
+  .scrim.show .modal{transform:none;}
+  .modal .mh{display:flex;align-items:center;gap:12px;padding:16px 19px;border-bottom:1px solid var(--line);}
+  .modal .mh .nm{font-weight:800;font-size:16px;}
+  .modal .mh .x{margin-left:auto;border:none;background:var(--card-2);color:var(--ink-soft);width:31px;height:31px;border-radius:8px;font-size:15px;}
+  .modal .mb{padding:19px;}
+  .modal .mb p.d{color:var(--ink-soft);font-size:13.5px;line-height:1.6;margin:0 0 14px;}
+  .field{margin-bottom:13px;}
+  .field label{display:block;font-size:12px;font-weight:700;color:var(--ink-soft);margin:0 0 6px;letter-spacing:.02em;}
+  textarea,input.tin{width:100%;border:1px solid var(--line-strong);background:var(--card-2);color:var(--ink);border-radius:9px;padding:10px 12px;font-size:13.5px;font-family:var(--font);outline:none;}
+  textarea.md{font-family:var(--mono);font-size:12px;line-height:1.6;min-height:230px;resize:vertical;}
+  textarea:focus,input.tin:focus{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-bg);}
+  .mf{display:flex;gap:8px;justify-content:flex-end;padding:15px 19px;border-top:1px solid var(--line);flex-wrap:wrap;}
+  .say{display:flex;flex-wrap:wrap;gap:7px;}
+  .say .c{font-size:13px;font-weight:700;background:var(--card-2);border:1px solid var(--line-strong);border-radius:999px;padding:6px 12px;display:inline-flex;align-items:center;gap:7px;}
+  .say .c .cp{border:none;background:transparent;color:var(--ink-faint);font-size:12px;padding:0;}
+  .hintbox{display:flex;gap:9px;background:var(--primary-bg);border:1px solid var(--primary-line);border-radius:10px;padding:11px 13px;font-size:12.5px;color:var(--ink);margin-top:12px;line-height:1.55;}
+  .hintbox b{color:var(--primary);}
+
+  .wiz{max-width:680px;margin:0 auto;}
+  .prog{display:flex;align-items:center;gap:6px;margin-bottom:20px;}
+  .prog .seg{flex:1;height:6px;border-radius:999px;background:var(--line);overflow:hidden;}
+  .prog .seg.done{background:var(--primary);}
+  .prog .seg.cur{background:linear-gradient(90deg,var(--primary),var(--primary-bg));}
+  .prog .lbl{font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);font-weight:700;white-space:nowrap;}
+  .wcard{background:var(--card);border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow);padding:26px;}
+  .wstep h2{margin:0 0 4px;font-size:19px;font-weight:800;letter-spacing:-.01em;}
+  .wstep .sub{color:var(--ink-soft);font-size:13.5px;margin:0 0 17px;}
+  .opts{display:grid;grid-template-columns:1fr 1fr;gap:9px;}
+  @media (max-width:520px){.opts{grid-template-columns:1fr;}}
+  .opt{border:1.5px solid var(--line-strong);background:var(--card-2);border-radius:11px;padding:13px 14px;text-align:left;transition:.15s;}
+  .opt:hover{border-color:var(--primary);}
+  .opt.sel{border-color:var(--primary);background:var(--primary-bg);box-shadow:0 0 0 3px var(--primary-bg);}
+  .opt .ot{font-weight:800;font-size:14px;display:flex;align-items:center;gap:7px;}
+  .opt .os{font-size:12px;color:var(--ink-soft);margin-top:3px;}
+  .opt .chk{margin-left:auto;color:var(--primary);font-weight:900;opacity:0;}
+  .opt.sel .chk{opacity:1;}
+  .wnav{display:flex;justify-content:space-between;gap:10px;margin-top:22px;}
+
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);z-index:80;background:var(--ink);color:var(--paper);font-weight:700;font-size:13.5px;padding:12px 19px;border-radius:11px;box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transition:.25s;display:flex;align-items:center;gap:9px;max-width:90vw;}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+  .toast .ti{color:#7ee0b0;}
+  .loading{text-align:center;padding:70px 20px;color:var(--ink-faint);font-size:14px;}
   @media (prefers-reduced-motion:reduce){*{transition:none!important;}}
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap toprow">
-  <span class="logo">🛠️</span><span class="ttl">[전략기획팀] 업무자동화 스테이션 — 스킬 카탈로그</span>
-  <span class="stamp">기준 2026-08-10 17:32</span>
-  <button class="theme" id="themeBtn" title="테마 전환">◐</button>
-</div></header>
-<main class="wrap">
-  <h1>팀 스킬 카탈로그 <span id="cnt"></span></h1>
-  <p class="sub">카드를 누르면 상세 내용을 확인할 수 있어요. <b>▶ 적용</b>을 누르면 트리거 문구가 복사되고 클로드가 열립니다.</p>
-  <div class="notice">📖 <div>이 페이지는 <b>보기 전용</b>이에요. 스킬 <b>생성·수정·삭제·승인</b>은 스테이션(<b>localhost:8787</b> · 3_station 폴더의 start_station.bat 실행)에서 할 수 있습니다.</div></div>
-  <div class="tools"><div class="search"><span class="si">🔍</span><input id="q" placeholder="스킬 이름·설명 검색"></div></div>
-  <div class="filters" id="filters"></div>
-  <div id="list"></div>
-</main>
+<div style="background:var(--primary-bg);border-bottom:1px solid var(--primary-line);color:var(--ink);font-size:12.5px;text-align:center;padding:7px 14px;">🌐 <b style="color:var(--primary)">보기 전용 웹 버전</b> · 기준 2026-08-10 18:00 — 생성·수정·승인은 각자 PC의 스테이션(<b>localhost:8787</b>)에서 할 수 있어요</div>
+<div class="topbar">
+  <div class="wrap row">
+    <div class="brand"><span class="logo">🛠️</span><span>[전략기획팀] 업무자동화 스테이션</span></div>
+    <nav class="tabs" id="tabs">
+      <button class="tab" data-view="guide">📖 활용방법</button>
+      <button class="tab" data-view="create">✨ 스킬 만들기</button>
+      <button class="tab active" data-view="skills">📚 스킬 목록</button>
+      <button class="tab" data-view="review">🗂️ 승인 대기함 <span class="badge zero" id="qbadge">0</span></button>
+    </nav>
+    <button class="theme-btn" id="themeBtn" title="테마 전환">◐</button>
+  </div>
+</div>
+<main class="wrap view" id="app"><div class="loading">불러오는 중…</div></main>
+<div class="scrim" id="scrim"><div class="modal" id="modal"></div></div>
 <div class="toast" id="toast"></div>
-<script id="data" type="application/json">{"skills": [{"n": "auto-schedule", "c": "스킬 운영", "s": "스킬·작업을 원하는 주기로 자동 실행되게 등록해주는 스킬", "d": "기존 스킬이나 작업을 정해진 주기로 자동 실행되게 \"스케줄 등록\"해주는 스킬. \"[스킬]을 매일 아침 9시에 자동으로 돌려줘\", \"이 작업 30분마다 반복\", \"스케줄 등록해줘\", \"자동으로 매일 실행\", \"/auto-schedule\" 같은 요청에 사용한다. 대상 작업이 로컬 자원(브라우저/파일)을 쓰는지 판단해 '클로드 루틴' vs '윈도우 스케줄러+헤드리스' 중 자동 선택하고, 사람 손이 최소로 들어가게 셋업한다. 실패 알림과 부작용 가드를 기본 포함한다.", "t": ["스케줄 등록", "[스킬]을 매일 아침 9시에 자동으로 돌려줘", "이 작업 30분마다 반복"], "routine": false, "schedule": "", "isNew": true, "createdAt": "2026-07-21 15:07", "createdBy": "정의성", "updatedAt": "2026-07-21 15:07", "updatedBy": "정의성"}, {"n": "calendar-invite", "c": "기획팀공통", "s": "시트 참석자 명단으로 구글 캘린더 초대를 보내주는 스킬", "d": "Use this skill when the user says \"캘린더 인비 해줘\", \"캘린더 초대해줘\", \"인비 보내줘\" for any event. Reads attendee list (name + email) from a Google Spreadsheet tab, creates a Google Calendar event, invites all attendees, then reports results to Slack monitoring channel. Trigger format: \"[행사명] 캘린더 인비해줘\" or \"캘린더 인비 해줘 - [행사명]\".", "t": ["캘린더 인비 해줘", "캘린더 초대해줘", "인비 보내줘"], "routine": false, "schedule": "", "isNew": true, "createdAt": "2026-06-26 16:41", "createdBy": "최혜령", "updatedAt": "2026-06-26 16:41", "updatedBy": "최혜령"}, {"n": "google-auth-alert", "c": "미디어", "s": "구글 광고주 인증 메일을 확인해 미완료 건만 슬랙으로 알려주는 스킬", "d": "매일 오전 11시 ponplead01@gmail.com(planning_team@madup.com)에 오는 구글 광고주 인증/신원확인 관련 메일을 감지해 CID별로 이미 인증 완료된 건은 제외하고, 미완료 건만 시트 조회 후 슬랙(@최혜령)에 알림을 보낸다. 이전에 이미 공유한 건은 재알림하지 않되, 마감이 임박(~1주일)했는데 아직 인증완료 메일이 없으면 \"리마인드\" 알림을 보낸다. \"구글 인증 알림 확인해줘\" 같은 수동 요청에도 사용.", "t": ["리마인드", "구글 인증 알림 확인해줘"], "routine": true, "schedule": "", "isNew": true, "createdAt": "2026-06-26 16:42", "createdBy": "최혜령", "updatedAt": "2026-06-26 16:42", "updatedBy": "최혜령"}, {"n": "google-auth-alert-forward", "c": "미디어", "s": "구글 인증 알림을 담당자에게 자동 전달해주는 스킬", "d": "google-auth-alert가 #기획팀_ai_모니터링에 보낸 구글 광고주 인증 알림 스레드에 담당팀/캠페인 태그(@usergroup)가 달리면, 그 알림 내용 + 태그를 #mkt_4_미디어_공유 채널로 전달한다. 30분마다 자동 실행.", "t": [], "routine": true, "schedule": "", "isNew": true, "createdAt": "2026-06-26 16:42", "createdBy": "최혜령", "updatedAt": "2026-06-26 16:42", "updatedBy": "최혜령"}, {"n": "insight-report-collector", "c": "미디어", "s": "아이보스 마케팅 자료실의 새 리포트를 수집해 드라이브에 올려주는 스킬", "d": "Use this skill when the user invokes \"/인사이트 리포트 수집\", \"/인사이트-리포트-수집\", or asks to collect insight reports / 아이보스 마케팅 자료실에서 리포트 다운로드 / 인사이트 리포트 자동 수집. Scrapes the i-boss.co.kr marketing materials page via Claude in Chrome, identifies new posts (by post ID greater than state.json's last_processed_id), downloads their PDFs, classifies by month (title month first, post date fallback), and uploads to the matching Google Drive 2026-MM folder via rclone CLI. Updates state.json after success. Designed to run biweekly via Windows Task Scheduler (every other Monday 15:00) but also works for manual /인사이트 리포트 수집 trigger. Reports a chat summary (NOT to Slack) of new/skipped/failed counts.", "t": ["/인사이트 리포트 수집", "/인사이트-리포트-수집"], "routine": false, "schedule": "", "isNew": true, "createdAt": "2026-06-26 16:42", "createdBy": "정의성", "updatedAt": "2026-06-26 16:42", "updatedBy": "정의성"}, {"n": "madup-alerttest", "c": "테스트·데모", "s": "알림 동작 확인용 테스트 스킬", "d": "알림 테스트용 스킬.", "t": [], "routine": false, "schedule": "", "isNew": false, "createdAt": "2026-06-26 14:56", "createdBy": "미지정", "updatedAt": "2026-06-26 14:56", "updatedBy": "미지정"}, {"n": "madup-demo", "c": "테스트·데모", "s": "폴더링 자동화 데모용 테스트 스킬", "d": "폴더링 자동화 데모 스킬. 사용자가 \"데모스킬\"이라고 하면 \"자동 폴더링 성공\"이라고 답한다.", "t": ["데모스킬", "자동 폴더링 성공"], "routine": false, "schedule": "", "isNew": false, "createdAt": "2026-06-26 14:33", "createdBy": "미지정", "updatedAt": "2026-06-26 14:33", "updatedBy": "미지정"}, {"n": "mail-draft-review", "c": "기획팀공통", "s": "메일 초안의 오타·톤·내용을 검토해주는 스킬", "d": "메일 초안 검토 스킬. 사용자가 \"메일 검토해줘\"와 함께 메일 초안을 붙여넣으면 오타·맞춤법·비문·톤·내용 정합성을 검토하고, 수정된 내용 목록과 수정 반영된 메일 본문 전문을 제시한다. \"메일 컨펌해줘\", \"메일 피드백\", \"이 메일 봐줘\" 등의 요청에도 사용. (기획팀 공통 업무)", "t": ["메일 검토해줘", "메일 컨펌해줘", "메일 피드백"], "routine": false, "schedule": "", "isNew": true, "createdAt": "2026-07-07 12:03", "createdBy": "최혜령", "updatedAt": "2026-07-07 12:03", "updatedBy": "최혜령"}, {"n": "meta-creditline-allocation", "c": "미디어", "s": "메타 크레딧라인을 할당하고 슬랙 답글까지 자동 처리하는 스킬", "d": "메타 크레딧라인 할당 + 슬랙 답글 자동화. 트리거: \"비즈니스 ID [숫자] 크레딧 할당해줘\", \"[슬랙 문의채널 링크] 크레딧 할당해줘\". 사용자가 비즈니스 ID(또는 슬랙 문의채널 링크)를 주면 메타에서 직접 할당 → 성공/실패 여부에 따라 모니터링 채널 + 문의채널 댓글 자동 작성.", "t": ["비즈니스 ID [숫자] 크레딧 할당해줘", "[슬랙 문의채널 링크] 크레딧 할당해줘"], "routine": false, "schedule": "", "isNew": true, "createdAt": "2026-06-26 16:42", "createdBy": "최혜령", "updatedAt": "2026-06-26 16:42", "updatedBy": "최혜령"}, {"n": "naver-transfer", "c": "미디어", "s": "네이버 광고 대행권 이관을 일괄 요청하는 스킬", "d": "", "t": [], "routine": false, "schedule": "", "isNew": true, "createdAt": "2026-06-26 16:42", "createdBy": "최민경", "updatedAt": "2026-06-26 16:42", "updatedBy": "최민경"}, {"n": "newsletter-feedback", "c": "기획팀공통", "s": "뉴스레터 초안을 검토해 피드백을 정리해주는 스킬", "d": "팀원이 작성한 뉴스레터 초안에 대해 피드백을 제공하는 스킬. 사용자가 \"/feedback\"을 입력하거나 \"뉴스레터 피드백\", \"인턴 뉴스레터 확인\", \"뉴스레터 컨펌\", \"뉴스레터 검토해줘\" 등을 언급할 때 반드시 이 스킬을 사용할 것. Gmail에서 해당 뉴스레터 메일을 가져오거나, 로컬 폴더(~/클로드 자동화 폴더/뉴스레터/)에서 파일을 읽어 섹션별로 오타/비문/띄어쓰기/내용 정합성을 검토하고 슬랙 피드백 형식으로 정리해준다.", "t": ["`/feedback` 커맨드 입력 시", "뉴스레터 피드백\", \"팀원 뉴스레터 컨펌\", \"뉴스레터 검토\" 언급 시", "--"], "routine": false, "schedule": "", "isNew": true, "createdAt": "2026-06-26 15:59", "createdBy": "최혜령", "updatedAt": "2026-06-26 15:59", "updatedBy": "최혜령"}, {"n": "skill-draft-upload", "c": "스킬 운영", "s": "스킬 파일(.md)을 draft 폴더에 자동 업로드해주는 스킬", "d": "클로드에서 스킬 파일(.md)을 업로드하면 Dropbox draft 폴더에 자동으로 넣어주는 스킬. \"draft에 올려줘\", \"스킬 올려줘\", \"이 파일 draft에 넣어줘\" 등의 요청 또는 .md 파일을 첨부했을 때 사용.", "t": ["draft에 올려줘", "스킬 올려줘", "이 파일 draft에 넣어줘"], "routine": false, "schedule": "", "isNew": true, "createdAt": "2026-07-03 18:45", "createdBy": "정의성", "updatedAt": "2026-07-03 18:45", "updatedBy": "정의성"}, {"n": "skill-folder-watch", "c": "스킬 운영", "s": "스킬 폴더 변경을 감지해 슬랙 알림·자동 정리해주는 스킬", "d": "기획팀 Claude 스킬 공유 구조(Dropbox draft/live)의 변경을 감지해 Slack 기획팀_ai_모니터링 채널에 알리고, live에 평문으로 올라온 .md 파일을 자동으로 스킬 폴더 구조(이름/SKILL.md)로 정리하며 카테고리를 frontmatter에 보존하고, 0_스킬_사용법.md를 카테고리별로 재생성하고, 각 스킬 폴더 안에 \"수정요청\"이 포함된 md 파일이 새로 생기거나 내용이 추가되면 알린다. 스케줄 작업(\"스킬 폴더 동기화 루틴 실행\")에서 호출된다. 누구의 PC에서 실행되든 동일하게 동작하도록 공유 상태 파일을 쓴다.", "t": ["수정요청", "스킬 폴더 동기화 루틴 실행"], "routine": true, "schedule": "", "isNew": true, "createdAt": "2026-07-21 14:51", "createdBy": "정의성", "updatedAt": "2026-07-21 14:51", "updatedBy": "정의성"}, {"n": "skill-modify-request", "c": "스킬 운영", "s": "스킬 수정 요청을 수정요청.md에 기재해주는 스킬", "d": "클로드에서 스킬 수정 요청을 하면 해당 스킬 폴더의 _수정요청.md에 자동으로 내용을 기재해주는 스킬. \"수정 요청해줘\", \"이 스킬 바꾸고 싶어\", \"[스킬명] 수정\", \"수정 요청 남겨줘\" 등의 요청에 사용.", "t": ["수정 요청해줘", "이 스킬 바꾸고 싶어", "[스킬명] 수정"], "routine": false, "schedule": "", "isNew": true, "createdAt": "2026-07-03 17:04", "createdBy": "정의성", "updatedAt": "2026-07-03 17:04", "updatedBy": "정의성"}, {"n": "skill-wizard", "c": "스킬 운영", "s": "대화만으로 새 스킬을 만들어주는 마법사 스킬", "d": "클로드 안에서 대화만으로 스킬을 생성하거나 수정 요청할 수 있는 마법사. \"새 스킬 만들어줘\", \"스킬 추가하고 싶어\", \"스킬 만들어줘\", \"스킬 수정하고 싶어\", \"/skill-wizard\" 등의 요청에 사용. 단계별 질문으로 SKILL.md를 자동 생성해 draft에 업로드하거나, 수정 요청을 수정요청.md에 기재한다.", "t": ["새 스킬 만들어줘", "스킬 추가하고 싶어", "스킬 만들어줘"], "routine": false, "schedule": "", "isNew": true, "createdAt": "2026-07-21 15:08", "createdBy": "최혜령", "updatedAt": "2026-07-21 15:08", "updatedBy": "최혜령"}, {"n": "slack-announcement-draft", "c": "기획팀공통", "s": "슬랙 내부 공지 초안을 채널 톤에 맞춰 작성해주는 스킬", "d": "슬랙 내부 공지 초안을 #mkt_4_미디어_공유 채널의 공지 스타일로 작성해주는 스킬. 사용자가 공지하고 싶은 내용(행사 안내, 자료 공유, 리마인드, 요청 등)을 입력하면, 실제 채널에서 쓰이는 형식과 말투로 바로 붙여 넣을 수 있는 슬랙 공지 초안을 대화창에 출력한다.", "t": [], "routine": false, "schedule": "", "isNew": true, "createdAt": "2026-06-26 16:43", "createdBy": "최민경", "updatedAt": "2026-06-26 16:43", "updatedBy": "최민경"}, {"n": "sync-leads", "c": "기획팀공통", "s": "슬랙 세일즈 채널의 인입 리드를 구글 시트에 동기화하는 스킬", "d": "Slack #mkt_세일즈유닛 채널의 인입 리드 데이터를 Google 시트에 동기화합니다. /sync-leads 명령 시 실행합니다. 사용자가 '리드 동기화', '시트 업데이트', '세일즈 데이터 동기화', 'sync leads', '새 리드 추가', '슬랙 리드 가져오기' 등을 요청할 때도 반드시 이 스킬을 사용하세요.", "t": [], "routine": true, "schedule": "", "isNew": true, "createdAt": "2026-06-26 16:43", "createdBy": "최민경", "updatedAt": "2026-06-26 16:43", "updatedBy": "최민경"}, {"n": "vacation-handover", "c": "기획팀공통", "s": "휴가 전 미해결 문의건을 담당자별로 정리해주는 스킬", "d": "휴가 전 미해결 문의건 인계 정리. 트리거 \"휴가 인계 정리해줘\". 미디어 문의 슬랙 채널에서 (1) 담당자가 '확인중' 이모지를 달았지만 '완료' 표시가 없는 건, (2) 내가 태그됐지만 아직 답변이 안 나간 건을, 실행일 기준 최근 3일치까지 담당자별로 정리해 채팅창에 보여준다. (기획팀 공통 업무)", "t": ["휴가 인계 정리해줘\", \"인계 정리\", \"미해결 문의 정리해줘"], "routine": false, "schedule": "", "isNew": true, "createdAt": "2026-07-07 16:45", "createdBy": "최혜령", "updatedAt": "2026-07-07 16:45", "updatedBy": "최혜령"}, {"n": "weekly-newsletter", "c": "기획팀공통", "s": "팀리드 주간 소식지를 만들어 노션에 배포해주는 스킬", "d": "매주 월요일 팀리드 주간 소식지를 자동으로 생성하고 노션에 배포하는 스킬. 슬랙 채널에서 한 주간 공지/뉴스/업데이트를 수집하고 사용자 입력(조직 이동, 세일즈 현황)을 받아 노션 팀리드 Weekly 소식지 페이지를 완성한다. 사용자가 \"소식지 만들어줘\", \"주간 소식지\", \"뉴스레터 작성\", \"소식지 시작\", \"weekly newsletter\", \"/weekly-newsletter\" 등을 입력하면 반드시 이 스킬을 사용할 것. 월요일마다 반복 사용되는 워크플로우이므로 소식지 관련 요청에는 주저 없이 트리거할 것.", "t": ["소식지 만들어줘", "주간 소식지", "뉴스레터 작성"], "routine": false, "schedule": "", "isNew": true, "createdAt": "2026-06-26 16:43", "createdBy": "최민경", "updatedAt": "2026-06-26 16:43", "updatedBy": "최민경"}]}</script>
+
+<script>window.__STATIC_STATE__={"skills": [{"n": "auto-schedule", "c": "스킬 운영", "d": "기존 스킬이나 작업을 정해진 주기로 자동 실행되게 \"스케줄 등록\"해주는 스킬. \"[스킬]을 매일 아침 9시에 자동으로 돌려줘\", \"이 작업 30분마다 반복\", \"스케줄 등록해줘\", \"자동으로 매일 실행\", \"/auto-schedule\" 같은 요청에 사용한다. 대상 작업이 로컬 자원(브라우저/파일)을 쓰는지 판단해 '클로드 루틴' vs '윈도우 스케줄러+헤드리스' 중 자동 선택하고, 사람 손이 최소로 들어가게 셋업한다. 실패 알림과 부작용 가드를 기본 포함한다.", "s": "스킬·작업을 원하는 주기로 자동 실행되게 등록해주는 스킬", "t": ["스케줄 등록", "[스킬]을 매일 아침 9시에 자동으로 돌려줘", "이 작업 30분마다 반복"], "md": "(웹 보기 전용 버전에서는 SKILL.md 원문이 표시되지 않아요 — 스테이션에서 확인하세요)", "routine": false, "lastKind": "new", "createdAt": "2026-07-21 15:07", "createdBy": "정의성", "updatedAt": "2026-07-21 15:07", "updatedBy": "정의성"}, {"n": "calendar-invite", "c": "기획팀공통", "d": "Use this skill when the user says \"캘린더 인비 해줘\", \"캘린더 초대해줘\", \"인비 보내줘\" for any event. Reads attendee list (name + email) from a Google Spreadsheet tab, creates a Google Calendar event, invites all attendees, then reports results to Slack monitoring channel. Trigger format: \"[행사명] 캘린더 인비해줘\" or \"캘린더 인비 해줘 - [행사명]\".", "s": "시트 참석자 명단으로 구글 캘린더 초대를 보내주는 스킬", "t": ["캘린더 인비 해줘", "캘린더 초대해줘", "인비 보내줘"], "md": "(웹 보기 전용 버전에서는 SKILL.md 원문이 표시되지 않아요 — 스테이션에서 확인하세요)", "routine": false, "lastKind": "new", "createdAt": "2026-06-26 16:41", "createdBy": "최혜령", "updatedAt": "2026-06-26 16:41", "updatedBy": "최혜령"}, {"n": "google-auth-alert", "c": "미디어", "d": "매일 오전 11시 ponplead01@gmail.com(planning_team@madup.com)에 오는 구글 광고주 인증/신원확인 관련 메일을 감지해 CID별로 이미 인증 완료된 건은 제외하고, 미완료 건만 시트 조회 후 슬랙(@최혜령)에 알림을 보낸다. 이전에 이미 공유한 건은 재알림하지 않되, 마감이 임박(~1주일)했는데 아직 인증완료 메일이 없으면 \"리마인드\" 알림을 보낸다. \"구글 인증 알림 확인해줘\" 같은 수동 요청에도 사용.", "s": "구글 광고주 인증 메일을 확인해 미완료 건만 슬랙으로 알려주는 스킬", "t": ["리마인드", "구글 인증 알림 확인해줘"], "md": "(웹 보기 전용 버전에서는 SKILL.md 원문이 표시되지 않아요 — 스테이션에서 확인하세요)", "routine": true, "lastKind": "new", "createdAt": "2026-06-26 16:42", "createdBy": "최혜령", "updatedAt": "2026-06-26 16:42", "updatedBy": "최혜령"}, {"n": "google-auth-alert-forward", "c": "미디어", "d": "google-auth-alert가 #기획팀_ai_모니터링에 보낸 구글 광고주 인증 알림 스레드에 담당팀/캠페인 태그(@usergroup)가 달리면, 그 알림 내용 + 태그를 #mkt_4_미디어_공유 채널로 전달한다. 30분마다 자동 실행.", "s": "구글 인증 알림을 담당자에게 자동 전달해주는 스킬", "t": [], "md": "(웹 보기 전용 버전에서는 SKILL.md 원문이 표시되지 않아요 — 스테이션에서 확인하세요)", "routine": true, "lastKind": "new", "createdAt": "2026-06-26 16:42", "createdBy": "최혜령", "updatedAt": "2026-06-26 16:42", "updatedBy": "최혜령"}, {"n": "insight-report-collector", "c": "미디어", "d": "Use this skill when the user invokes \"/인사이트 리포트 수집\", \"/인사이트-리포트-수집\", or asks to collect insight reports / 아이보스 마케팅 자료실에서 리포트 다운로드 / 인사이트 리포트 자동 수집. Scrapes the i-boss.co.kr marketing materials page via Claude in Chrome, identifies new posts (by post ID greater than state.json's last_processed_id), downloads their PDFs, classifies by month (title month first, post date fallback), and uploads to the matching Google Drive 2026-MM folder via rclone CLI. Updates state.json after success. Designed to run biweekly via Windows Task Scheduler (every other Monday 15:00) but also works for manual /인사이트 리포트 수집 trigger. Reports a chat summary (NOT to Slack) of new/skipped/failed counts.", "s": "아이보스 마케팅 자료실의 새 리포트를 수집해 드라이브에 올려주는 스킬", "t": ["/인사이트 리포트 수집", "/인사이트-리포트-수집"], "md": "(웹 보기 전용 버전에서는 SKILL.md 원문이 표시되지 않아요 — 스테이션에서 확인하세요)", "routine": false, "lastKind": "new", "createdAt": "2026-06-26 16:42", "createdBy": "정의성", "updatedAt": "2026-06-26 16:42", "updatedBy": "정의성"}, {"n": "madup-alerttest", "c": "테스트·데모", "d": "알림 테스트용 스킬.", "s": "알림 동작 확인용 테스트 스킬", "t": [], "md": "(웹 보기 전용 버전에서는 SKILL.md 원문이 표시되지 않아요 — 스테이션에서 확인하세요)", "routine": false, "lastKind": "edit", "createdAt": "2026-06-26 14:56", "createdBy": "미지정", "updatedAt": "2026-06-26 14:56", "updatedBy": "미지정"}, {"n": "madup-demo", "c": "테스트·데모", "d": "폴더링 자동화 데모 스킬. 사용자가 \"데모스킬\"이라고 하면 \"자동 폴더링 성공\"이라고 답한다.", "s": "폴더링 자동화 데모용 테스트 스킬", "t": ["데모스킬", "자동 폴더링 성공"], "md": "(웹 보기 전용 버전에서는 SKILL.md 원문이 표시되지 않아요 — 스테이션에서 확인하세요)", "routine": false, "lastKind": "edit", "createdAt": "2026-06-26 14:33", "createdBy": "미지정", "updatedAt": "2026-06-26 14:33", "updatedBy": "미지정"}, {"n": "mail-draft-review", "c": "기획팀공통", "d": "메일 초안 검토 스킬. 사용자가 \"메일 검토해줘\"와 함께 메일 초안을 붙여넣으면 오타·맞춤법·비문·톤·내용 정합성을 검토하고, 수정된 내용 목록과 수정 반영된 메일 본문 전문을 제시한다. \"메일 컨펌해줘\", \"메일 피드백\", \"이 메일 봐줘\" 등의 요청에도 사용. (기획팀 공통 업무)", "s": "메일 초안의 오타·톤·내용을 검토해주는 스킬", "t": ["메일 검토해줘", "메일 컨펌해줘", "메일 피드백"], "md": "(웹 보기 전용 버전에서는 SKILL.md 원문이 표시되지 않아요 — 스테이션에서 확인하세요)", "routine": false, "lastKind": "new", "createdAt": "2026-07-07 12:03", "createdBy": "최혜령", "updatedAt": "2026-07-07 12:03", "updatedBy": "최혜령"}, {"n": "meta-creditline-allocation", "c": "미디어", "d": "메타 크레딧라인 할당 + 슬랙 답글 자동화. 트리거: \"비즈니스 ID [숫자] 크레딧 할당해줘\", \"[슬랙 문의채널 링크] 크레딧 할당해줘\". 사용자가 비즈니스 ID(또는 슬랙 문의채널 링크)를 주면 메타에서 직접 할당 → 성공/실패 여부에 따라 모니터링 채널 + 문의채널 댓글 자동 작성.", "s": "메타 크레딧라인을 할당하고 슬랙 답글까지 자동 처리하는 스킬", "t": ["비즈니스 ID [숫자] 크레딧 할당해줘", "[슬랙 문의채널 링크] 크레딧 할당해줘"], "md": "(웹 보기 전용 버전에서는 SKILL.md 원문이 표시되지 않아요 — 스테이션에서 확인하세요)", "routine": false, "lastKind": "new", "createdAt": "2026-06-26 16:42", "createdBy": "최혜령", "updatedAt": "2026-06-26 16:42", "updatedBy": "최혜령"}, {"n": "naver-transfer", "c": "미디어", "d": "", "s": "네이버 광고 대행권 이관을 일괄 요청하는 스킬", "t": [], "md": "(웹 보기 전용 버전에서는 SKILL.md 원문이 표시되지 않아요 — 스테이션에서 확인하세요)", "routine": false, "lastKind": "new", "createdAt": "2026-06-26 16:42", "createdBy": "최민경", "updatedAt": "2026-06-26 16:42", "updatedBy": "최민경"}, {"n": "newsletter-feedback", "c": "기획팀공통", "d": "팀원이 작성한 뉴스레터 초안에 대해 피드백을 제공하는 스킬. 사용자가 \"/feedback\"을 입력하거나 \"뉴스레터 피드백\", \"인턴 뉴스레터 확인\", \"뉴스레터 컨펌\", \"뉴스레터 검토해줘\" 등을 언급할 때 반드시 이 스킬을 사용할 것. Gmail에서 해당 뉴스레터 메일을 가져오거나, 로컬 폴더(~/클로드 자동화 폴더/뉴스레터/)에서 파일을 읽어 섹션별로 오타/비문/띄어쓰기/내용 정합성을 검토하고 슬랙 피드백 형식으로 정리해준다.", "s": "뉴스레터 초안을 검토해 피드백을 정리해주는 스킬", "t": ["`/feedback` 커맨드 입력 시", "뉴스레터 피드백\", \"팀원 뉴스레터 컨펌\", \"뉴스레터 검토\" 언급 시", "--"], "md": "(웹 보기 전용 버전에서는 SKILL.md 원문이 표시되지 않아요 — 스테이션에서 확인하세요)", "routine": false, "lastKind": "new", "createdAt": "2026-06-26 15:59", "createdBy": "최혜령", "updatedAt": "2026-06-26 15:59", "updatedBy": "최혜령"}, {"n": "skill-draft-upload", "c": "스킬 운영", "d": "클로드에서 스킬 파일(.md)을 업로드하면 Dropbox draft 폴더에 자동으로 넣어주는 스킬. \"draft에 올려줘\", \"스킬 올려줘\", \"이 파일 draft에 넣어줘\" 등의 요청 또는 .md 파일을 첨부했을 때 사용.", "s": "스킬 파일(.md)을 draft 폴더에 자동 업로드해주는 스킬", "t": ["draft에 올려줘", "스킬 올려줘", "이 파일 draft에 넣어줘"], "md": "(웹 보기 전용 버전에서는 SKILL.md 원문이 표시되지 않아요 — 스테이션에서 확인하세요)", "routine": false, "lastKind": "new", "createdAt": "2026-07-03 18:45", "createdBy": "정의성", "updatedAt": "2026-07-03 18:45", "updatedBy": "정의성"}, {"n": "skill-folder-watch", "c": "스킬 운영", "d": "기획팀 Claude 스킬 공유 구조(Dropbox draft/live)의 변경을 감지해 Slack 기획팀_ai_모니터링 채널에 알리고, live에 평문으로 올라온 .md 파일을 자동으로 스킬 폴더 구조(이름/SKILL.md)로 정리하며 카테고리를 frontmatter에 보존하고, 0_스킬_사용법.md를 카테고리별로 재생성하고, 각 스킬 폴더 안에 \"수정요청\"이 포함된 md 파일이 새로 생기거나 내용이 추가되면 알린다. 스케줄 작업(\"스킬 폴더 동기화 루틴 실행\")에서 호출된다. 누구의 PC에서 실행되든 동일하게 동작하도록 공유 상태 파일을 쓴다.", "s": "스킬 폴더 변경을 감지해 슬랙 알림·자동 정리해주는 스킬", "t": ["수정요청", "스킬 폴더 동기화 루틴 실행"], "md": "(웹 보기 전용 버전에서는 SKILL.md 원문이 표시되지 않아요 — 스테이션에서 확인하세요)", "routine": true, "lastKind": "new", "createdAt": "2026-07-21 14:51", "createdBy": "정의성", "updatedAt": "2026-07-21 14:51", "updatedBy": "정의성"}, {"n": "skill-modify-request", "c": "스킬 운영", "d": "클로드에서 스킬 수정 요청을 하면 해당 스킬 폴더의 _수정요청.md에 자동으로 내용을 기재해주는 스킬. \"수정 요청해줘\", \"이 스킬 바꾸고 싶어\", \"[스킬명] 수정\", \"수정 요청 남겨줘\" 등의 요청에 사용.", "s": "스킬 수정 요청을 수정요청.md에 기재해주는 스킬", "t": ["수정 요청해줘", "이 스킬 바꾸고 싶어", "[스킬명] 수정"], "md": "(웹 보기 전용 버전에서는 SKILL.md 원문이 표시되지 않아요 — 스테이션에서 확인하세요)", "routine": false, "lastKind": "new", "createdAt": "2026-07-03 17:04", "createdBy": "정의성", "updatedAt": "2026-07-03 17:04", "updatedBy": "정의성"}, {"n": "skill-wizard", "c": "스킬 운영", "d": "클로드 안에서 대화만으로 스킬을 생성하거나 수정 요청할 수 있는 마법사. \"새 스킬 만들어줘\", \"스킬 추가하고 싶어\", \"스킬 만들어줘\", \"스킬 수정하고 싶어\", \"/skill-wizard\" 등의 요청에 사용. 단계별 질문으로 SKILL.md를 자동 생성해 draft에 업로드하거나, 수정 요청을 수정요청.md에 기재한다.", "s": "대화만으로 새 스킬을 만들어주는 마법사 스킬", "t": ["새 스킬 만들어줘", "스킬 추가하고 싶어", "스킬 만들어줘"], "md": "(웹 보기 전용 버전에서는 SKILL.md 원문이 표시되지 않아요 — 스테이션에서 확인하세요)", "routine": false, "lastKind": "new", "createdAt": "2026-07-21 15:08", "createdBy": "최혜령", "updatedAt": "2026-07-21 15:08", "updatedBy": "최혜령"}, {"n": "slack-announcement-draft", "c": "기획팀공통", "d": "슬랙 내부 공지 초안을 #mkt_4_미디어_공유 채널의 공지 스타일로 작성해주는 스킬. 사용자가 공지하고 싶은 내용(행사 안내, 자료 공유, 리마인드, 요청 등)을 입력하면, 실제 채널에서 쓰이는 형식과 말투로 바로 붙여 넣을 수 있는 슬랙 공지 초안을 대화창에 출력한다.", "s": "슬랙 내부 공지 초안을 채널 톤에 맞춰 작성해주는 스킬", "t": [], "md": "(웹 보기 전용 버전에서는 SKILL.md 원문이 표시되지 않아요 — 스테이션에서 확인하세요)", "routine": false, "lastKind": "new", "createdAt": "2026-06-26 16:43", "createdBy": "최민경", "updatedAt": "2026-06-26 16:43", "updatedBy": "최민경"}, {"n": "sync-leads", "c": "기획팀공통", "d": "Slack #mkt_세일즈유닛 채널의 인입 리드 데이터를 Google 시트에 동기화합니다. /sync-leads 명령 시 실행합니다. 사용자가 '리드 동기화', '시트 업데이트', '세일즈 데이터 동기화', 'sync leads', '새 리드 추가', '슬랙 리드 가져오기' 등을 요청할 때도 반드시 이 스킬을 사용하세요.", "s": "슬랙 세일즈 채널의 인입 리드를 구글 시트에 동기화하는 스킬", "t": [], "md": "(웹 보기 전용 버전에서는 SKILL.md 원문이 표시되지 않아요 — 스테이션에서 확인하세요)", "routine": true, "lastKind": "new", "createdAt": "2026-06-26 16:43", "createdBy": "최민경", "updatedAt": "2026-06-26 16:43", "updatedBy": "최민경"}, {"n": "vacation-handover", "c": "기획팀공통", "d": "휴가 전 미해결 문의건 인계 정리. 트리거 \"휴가 인계 정리해줘\". 미디어 문의 슬랙 채널에서 (1) 담당자가 '확인중' 이모지를 달았지만 '완료' 표시가 없는 건, (2) 내가 태그됐지만 아직 답변이 안 나간 건을, 실행일 기준 최근 3일치까지 담당자별로 정리해 채팅창에 보여준다. (기획팀 공통 업무)", "s": "휴가 전 미해결 문의건을 담당자별로 정리해주는 스킬", "t": ["휴가 인계 정리해줘\", \"인계 정리\", \"미해결 문의 정리해줘"], "md": "(웹 보기 전용 버전에서는 SKILL.md 원문이 표시되지 않아요 — 스테이션에서 확인하세요)", "routine": false, "lastKind": "new", "createdAt": "2026-07-07 16:45", "createdBy": "최혜령", "updatedAt": "2026-07-07 16:45", "updatedBy": "최혜령"}, {"n": "weekly-newsletter", "c": "기획팀공통", "d": "매주 월요일 팀리드 주간 소식지를 자동으로 생성하고 노션에 배포하는 스킬. 슬랙 채널에서 한 주간 공지/뉴스/업데이트를 수집하고 사용자 입력(조직 이동, 세일즈 현황)을 받아 노션 팀리드 Weekly 소식지 페이지를 완성한다. 사용자가 \"소식지 만들어줘\", \"주간 소식지\", \"뉴스레터 작성\", \"소식지 시작\", \"weekly newsletter\", \"/weekly-newsletter\" 등을 입력하면 반드시 이 스킬을 사용할 것. 월요일마다 반복 사용되는 워크플로우이므로 소식지 관련 요청에는 주저 없이 트리거할 것.", "s": "팀리드 주간 소식지를 만들어 노션에 배포해주는 스킬", "t": ["소식지 만들어줘", "주간 소식지", "뉴스레터 작성"], "md": "(웹 보기 전용 버전에서는 SKILL.md 원문이 표시되지 않아요 — 스테이션에서 확인하세요)", "routine": false, "lastKind": "new", "createdAt": "2026-06-26 16:43", "createdBy": "최민경", "updatedAt": "2026-06-26 16:43", "updatedBy": "최민경"}], "queue": [{"id": 1, "kind": "edit", "skill": "madup-alerttest", "oldMd": "(웹 보기 전용 버전에서는 SKILL.md 원문이 표시되지 않아요 — 스테이션에서 확인하세요)", "newMd": "(웹 보기 전용 버전에서는 SKILL.md 원문이 표시되지 않아요 — 스테이션에서 확인하세요)", "by": "최혜령", "reason": "테스트중", "when": "2026-08-10 15:57"}], "cats": ["기획팀공통", "미디어", "HR", "개인", "스킬 운영", "테스트·데모", "미분류"], "channel": "#기획팀_ai_모니터링", "webhook_set": true};</script>
 <script>
 "use strict";
 (function(){
-  const DATA=JSON.parse(document.getElementById("data").textContent);
-  const CATS=[{k:"기획팀공통",e:"📋"},{k:"미디어",e:"📡"},{k:"HR",e:"🧑\u200d💼"},{k:"개인",e:"🙋"},{k:"스킬 운영",e:"⚙️"},{k:"테스트·데모",e:"🧪"},{k:"미분류",e:"📦"}];
-  let Q="",F="all";
-  const $=s=>document.querySelector(s);
+  const CATS=[{key:"기획팀공통",emoji:"📋"},{key:"미디어",emoji:"📡"},{key:"HR",emoji:"🧑‍💼"},{key:"개인",emoji:"🙋"},{key:"스킬 운영",emoji:"⚙️"},{key:"테스트·데모",emoji:"🧪"},{key:"미분류",emoji:"📦"}];
+  let STATE={skills:[],queue:[],channel:"#기획팀_ai_모니터링",webhook_set:false};
+  let VIEW="skills",Q="",FILTER="all";
+
+  const $=(s,r=document)=>r.querySelector(s);
   const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
   const initial=s=>String(s||"?").trim().charAt(0)||"?";
-  function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("show"),2800);}
-  function card(s){
-    const who=s.isNew?["생성","생성자",s.createdAt,s.createdBy]:["수정","수정자",s.updatedAt,s.updatedBy];
-    const trigs=(s.t||[]).filter(t=>t&&!/^\s*\(/.test(t));
-    return '<div class="scard" data-n="'+esc(s.n)+'">'
-      +'<div class="chead" data-act="toggle"><span class="nm">'+esc(s.n)+'</span>'
-      +(s.routine?'<span class="rdot" title="루틴(자동 실행)"></span>':'')
-      +'<span class="sep"></span><span class="one">'+esc(s.s||s.d||"(설명 없음)")+'</span>'
-      +(trigs.length?'<button class="go" data-act="use">▶ 적용</button>':'')
-      +'<button class="tg" data-act="toggle">▾</button></div>'
-      +'<div class="cbody"><p class="desc">'+esc(s.d||s.s||"(설명 없음)")+'</p>'
-      +(trigs.length?'<div class="trigs">'+trigs.map(t=>'<span class="trig">"'+esc(t)+'"</span>').join("")+'</div>':'')
-      +'<div class="pillrow"><span class="pill live">🟢 운영중</span>'+(s.routine?'<span class="pill routine">🔁 루틴'+(s.schedule?" · "+esc(s.schedule):"")+'</span>':'')+'</div>'
-      +'<div class="meta">'+who[0]+'일 '+esc(who[2])+' · '+who[1]+' <span><span class="av">'+esc(initial(who[3]))+'</span>'+esc(who[3])+'</span></div>'
-      +'</div></div>';
+  function toast(m){const t=$("#toast");t.innerHTML='<span class="ti">✓</span>'+esc(m);t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("show"),3000);}
+  function copy(txt,l){navigator.clipboard&&navigator.clipboard.writeText(txt);toast((l||"복사")+" 완료");}
+  function pendingKind(n){const q=STATE.queue.find(q=>q.skill===n);return q?(q.kind||"edit"):null;}
+  function getSkill(n){return STATE.skills.find(s=>s.n===n);}
+  function slackMsg(r){return r&&r.slack&&r.slack.sent?" · 슬랙 알림 전송됨":(r&&r.slack&&r.slack.reason==="no_webhook"?" · (슬랙 미연결)":"");}
+
+  async function api(path,body){
+    if(path==="/api/state")return window.__STATIC_STATE__;
+    return {ok:false,error:"🌐 여기는 보기 전용 웹 버전이에요. 생성·수정·삭제·승인은 각자 PC의 스테이션(localhost:8787)에서 해주세요."};
   }
+  async function refresh(){STATE=await api("/api/state");render();}
+
   function render(){
-    $("#cnt").textContent="· "+DATA.skills.length+"개";
-    const ql=Q.trim().toLowerCase();
-    const match=s=>(!ql||s.n.toLowerCase().includes(ql)||(s.s||"").toLowerCase().includes(ql)||(s.d||"").toLowerCase().includes(ql))&&(F==="all"||s.c===F);
-    let fh='<button class="fbtn'+(F==="all"?" active":"")+'" data-f="all">전체</button>';
-    CATS.forEach(c=>{if(DATA.skills.some(s=>s.c===c.k))fh+='<button class="fbtn'+(F===c.k?" active":"")+'" data-f="'+esc(c.k)+'">'+c.e+" "+esc(c.k)+'</button>';});
-    $("#filters").innerHTML=fh;
-    let h="",any=false;
-    CATS.forEach(c=>{const list=DATA.skills.filter(s=>s.c===c.k&&match(s));if(!list.length)return;any=true;
-      h+='<section class="catsec"><div class="ch"><span class="cico">'+c.e+'</span><h2>'+esc(c.k)+'</h2><span class="cnt">'+list.length+'</span></div><div class="cards">'+list.map(card).join("")+'</div></section>';});
-    $("#list").innerHTML=any?h:'<div class="empty">🔍 결과가 없어요</div>';
+    document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t.dataset.view===VIEW));
+    const qb=$("#qbadge");qb.textContent=STATE.queue.length;qb.classList.toggle("zero",STATE.queue.length===0);
+    const app=$("#app");
+    if(VIEW==="skills"){app.innerHTML=viewSkills();wireSkills();}
+    else if(VIEW==="review"){app.innerHTML=viewReview();$("#app").onclick=onAppClick;}
+    else if(VIEW==="guide"){app.innerHTML=viewGuide();const g=$("#gGo");if(g)g.onclick=()=>{VIEW="create";render();};}
+    else{app.innerHTML="";mountWizard(app);}
   }
-  document.addEventListener("click",e=>{
-    const f=e.target.closest(".fbtn");if(f){F=f.dataset.f;render();return;}
+  function viewGuide(){
+    return '<div class="vhead"><h1>자동화 스테이션 활용방법</h1><p>우리 팀이 <b>클로드 스킬</b>을 만들고·고치고·삭제하고·자동 실행(루틴)까지 관리하는 곳이에요.<br>처음이면 아래 순서대로 보세요.</p></div>'+
+    '<div class="gsec"><h2><span class="gn">?</span>자동화 스테이션이란?</h2><p><b>스킬</b> = 클로드에게 시키는 반복 업무를 정리해둔 파일(SKILL.md). 여기서 만든 스킬은 <b>실제 팀 공용 폴더에 바로 반영</b>되고, 팀원 누구나 클로드에서 바로 쓸 수 있어요.<br>생성·수정·승인은 <b>#기획팀_ai_모니터링</b> 슬랙으로 자동 알림됩니다.</p></div>'+
+    '<div class="gsec"><h2><span class="gn">1</span>처음 오셨나요? — 팀원 1회 셋팅</h2>'+
+      '<ul><li><span class="k">1단계</span><span>Dropbox <b>기획팀 › 10.기획팀 업무자동화 › 3_station</b> 폴더로 이동</span></li>'+
+      '<li><span class="k">2단계</span><span><b>start_station.bat</b> 더블클릭 (또는 <b>station.exe</b>) — <b>Python 설치 필요 없어요</b></span></li>'+
+      '<li><span class="k">3단계</span><span>잠시 뒤 브라우저에 <b>localhost:8787</b> 이 자동으로 열려요. 검은 콘솔 창은 켜둔 채로 두세요(닫으면 종료).</span></li></ul>'+
+      '<div class="hintbox">🔖 <div><b>매번 폴더로 안 들어가고 싶다면?</b> 같은 폴더의 <b>자동실행_등록.bat</b>을 한 번만 더블클릭하세요. 그럼 PC 켤 때마다 스테이션이 자동으로 켜지고, 이후엔 <b>즐겨찾기(localhost:8787)</b>만 눌러도 바로 접속돼요. (끄려면 자동실행_해제.bat)</div></div></div>'+
+    '<div class="gsec"><h2><span class="gn">2</span>이렇게 쓰세요</h2>'+
+      '<ul>'+
+      '<li><span class="k">만들기</span><span><b>✨ 스킬 만들기</b> — 질문 몇 개 답하면 SKILL.md가 만들어져 <b>승인 없이 바로 배포</b>돼요.</span></li>'+
+      '<li><span class="k">찾기</span><span><b>📚 스킬 목록</b> — 카테고리·검색·<b>🔁 루틴</b> 필터. 이름 옆 <b>🔁 루틴</b>은 자동 실행 스킬.</span></li>'+
+      '<li><span class="k">적용</span><span><b>▶ 적용</b> = 트리거 문구 복사 + 클로드 열기. 붙여넣으면 실행돼요.</span></li>'+
+      '<li><span class="k">수정</span><span>카드 펼치기 → <b>✏️ 수정하기</b>. 막막하면 <b>🤖 클로드로 제안받기</b>로 수정안 프롬프트를 받아요. 저장하면 바로 반영 X → <b>승인 대기함</b>으로.</span></li>'+
+      '<li><span class="k">삭제</span><span><b>🗑️ 삭제하기</b> → 승인 대기함으로. 승인해야 실제 삭제돼요.</span></li>'+
+      '<li><span class="k">루틴</span><span>수정 화면의 <b>🔁 루틴으로 등록</b> → 주기 선택. 실제 자동 실행은 생성된 명령을 클로드에 한 번 붙여넣어 완료.</span></li>'+
+      '<li><span class="k">승인</span><span><b>🗂️ 승인 대기함</b> — 수정 제안·삭제 요청을 검토하고 승인/반려. 승인해야 실제 파일에 반영돼요.</span></li>'+
+      '</ul></div>'+
+    '<div class="gsec"><h2><span class="gn">3</span>딱 3가지 규칙</h2>'+
+      '<ul><li><span class="k">생성</span><span>새 스킬은 <b>바로 배포</b> (승인 불필요)</span></li>'+
+      '<li><span class="k">수정·삭제</span><span>반드시 <b>승인 대기함</b> 거쳐서 반영</span></li>'+
+      '<li><span class="k">알림</span><span>모든 작업은 <b>#기획팀_ai_모니터링</b>으로 자동 공유</span></li></ul>'+
+      '<button class="gbtn" id="gGo">✨ 지금 스킬 만들어보기 →</button></div>';
+  }
+
+  function bannerHtml(){
+    if(STATE.webhook_set)return '<div class="banner ok"><span class="bi">🔔</span><div class="bt"><b>슬랙 연결됨</b> — 생성·수정·승인 시 '+esc(STATE.channel)+' 로 알림이 갑니다.</div></div>';
+    return '<div class="banner"><span class="bi">🔔</span><div class="bt"><b>슬랙 알림 설정</b> — Incoming Webhook URL을 넣으면 모든 작업이 '+esc(STATE.channel)+' 로 즉시 알림돼요. (README에 만드는 법)</div>'+
+      '<input id="whInput" placeholder="https://hooks.slack.com/services/..."><button id="whSave">저장</button></div>';
+  }
+  function wireBanner(){const s=$("#whSave");if(s)s.onclick=async()=>{const v=($("#whInput").value||"").trim();if(!v){toast("Webhook URL을 넣어주세요");return;}const r=await api("/api/config",{slack_webhook:v});STATE=r.state;toast("슬랙 연결 완료"+slackMsg(r));render();};}
+
+  /* ---- SKILLS ---- */
+  function viewSkills(){
+    let h='<div class="vhead"><h1>스킬 목록</h1><p>팀 스킬 <b>'+STATE.skills.length+'개</b> · 카드를 누르면 상세 내용을 확인할 수 있어요.</p><p>새 스킬은 바로 배포되고, 수정은 승인 대기함을 거칩니다.</p></div>';
+    h+=bannerHtml();
+    h+='<div class="toolbar"><div class="search"><span class="si">🔍</span><input id="q" placeholder="스킬 이름·설명 검색" value="'+esc(Q)+'"></div><div class="listtools"><button class="lbtn" id="expandAll">⇕ 전체 펼치기</button></div></div>';
+    h+='<div class="filters" id="filters"><button class="fbtn '+(FILTER==="all"?"active":"")+'" data-f="all">전체</button>';
+    CATS.forEach(c=>{const n=STATE.skills.filter(s=>s.c===c.key).length;if(n)h+='<button class="fbtn '+(FILTER===c.key?"active":"")+'" data-f="'+esc(c.key)+'">'+c.emoji+" "+esc(c.key)+'</button>';});
+    const rc=STATE.skills.filter(s=>s.routine).length;
+    if(rc)h+='<button class="fbtn routine '+(FILTER==="__routine"?"active":"")+'" data-f="__routine">🔁 루틴 <span style="opacity:.7">'+rc+'</span></button>';
+    h+='</div>';
+    const ql=Q.trim().toLowerCase();
+    const match=s=>{const catOk=FILTER==="all"?true:(FILTER==="__routine"?!!s.routine:s.c===FILTER);return (!ql||s.n.toLowerCase().includes(ql)||(s.d||"").toLowerCase().includes(ql)||(s.s||"").toLowerCase().includes(ql))&&catOk;};
+    let any=false;
+    CATS.forEach(cat=>{const list=STATE.skills.filter(s=>s.c===cat.key&&match(s));if(!list.length)return;any=true;
+      h+='<section class="catsec"><div class="ch"><span class="cico">'+cat.emoji+'</span><h2>'+esc(cat.key)+'</h2><span class="cnt">'+list.length+'</span></div><div class="cards">';
+      list.forEach(s=>h+=skillCard(s));h+='</div></section>';});
+    if(!any)h+='<div class="empty"><div class="big">🔍</div><h3>결과가 없어요</h3></div>';
+    return h;
+  }
+  function skillCard(s){
+    const pk=pendingKind(s.n),isNew=s.lastKind==="new";
+    let dots='<span class="dot live"></span>'+(s.routine?'<span class="dot routine"></span>':'')+(pk==="edit"?'<span class="dot rev"></span>':'')+(pk==="delete"?'<span class="dot del"></span>':'');
+    const meta='<span class="tag '+(isNew?"n":"e")+'">'+(isNew?"🆕 생성":"✏️ 수정")+'</span>'+(isNew?"생성일 "+esc(s.createdAt):"수정일 "+esc(s.updatedAt))+
+      '<span class="who">'+(isNew?"생성자":"수정자")+' <span class="av">'+esc(initial(isNew?s.createdBy:s.updatedBy))+'</span>'+esc(isNew?s.createdBy:s.updatedBy)+'</span>';
+    const pills='<span class="pill live">🟢 운영중</span>'+(s.routine?'<span class="pill routine">🔵 루틴</span>':'')+(pk==="edit"?'<span class="pill rev">🟡 수정 검토중</span>':'')+(pk==="delete"?'<span class="pill del">🔴 삭제 검토중</span>':'');
+    const one=(s.s||s.d||"(설명 없음)").replace(/\s+/g," ").trim();
+    return '<div class="scard">'+
+      '<div class="chead" data-act="toggle">'+
+        '<button class="ctoggle" data-act="toggle"><span class="nm">'+esc(s.n)+'</span>'+(s.routine?'<span class="schtag">🔁 루틴</span>':'')+'<span class="dots">'+dots+'</span><span class="sep"></span><span class="one">'+esc(one)+'</span></button>'+
+        '<div class="chz"><button class="applybtn" data-act="use" data-n="'+esc(s.n)+'">▶ 적용</button><button class="tgbtn" data-act="toggle">▾</button></div>'+
+      '</div>'+
+      '<div class="cbody"><p class="desc">'+esc(s.d||s.s||"(설명 없음)")+'</p><div class="rowpills">'+pills+'</div><div class="cmeta2">'+meta+'</div>'+
+      '<div class="acts"><button class="abtn edit" data-act="edit" data-n="'+esc(s.n)+'">✏️ 수정하기</button><button class="abtn del" data-act="del" data-n="'+esc(s.n)+'">🗑️ 삭제하기</button></div></div></div>';
+  }
+  function wireSkills(){
+    wireBanner();
+    const q=$("#q");if(q)q.oninput=e=>{Q=e.target.value;const p=q.selectionStart;$("#app").innerHTML=viewSkills();wireSkills();const q2=$("#q");if(q2){q2.focus();try{q2.setSelectionRange(p,p);}catch(e){}}};
+    const f=$("#filters");if(f)f.onclick=e=>{const b=e.target.closest(".fbtn");if(!b)return;FILTER=b.dataset.f;$("#app").innerHTML=viewSkills();wireSkills();};
+    const ea=$("#expandAll");if(ea)ea.onclick=()=>{const cards=document.querySelectorAll(".scard");const anyClosed=[...cards].some(c=>!c.classList.contains("open"));cards.forEach(c=>c.classList.toggle("open",anyClosed));ea.textContent=anyClosed?"⇕ 전체 접기":"⇕ 전체 펼치기";};
+    $("#app").onclick=onAppClick;
+  }
+  function onAppClick(e){
     const b=e.target.closest("[data-act]");if(!b)return;
-    const cardEl=b.closest(".scard");
-    if(b.dataset.act==="toggle")cardEl.classList.toggle("open");
-    else if(b.dataset.act==="use"){
-      const s=DATA.skills.find(x=>x.n===cardEl.dataset.n);
-      const trig=(s.t||[]).find(t=>t&&!/^\s*\(/.test(t));
-      if(!trig){toast("이 스킬은 자동 실행 루틴이라 트리거 문구가 없어요");return;}
-      try{navigator.clipboard&&navigator.clipboard.writeText(trig);}catch(err){}
-      try{window.open("https://claude.ai/new?q="+encodeURIComponent(trig),"_blank");}catch(err){}
-      toast("'"+trig+"' 복사됨 · 클로드 열림 (안 붙으면 Ctrl+V)");
+    const act=b.dataset.act,n=b.dataset.n,id=b.dataset.id;
+    if(act==="toggle")b.closest(".scard").classList.toggle("open");
+    else if(act==="use")applySkill(n);
+    else if(act==="edit")openEdit(n);
+    else if(act==="del")openDelete(n);
+    else if(act==="approve")doApprove(id);
+    else if(act==="reject")doReject(id);
+  }
+
+  /* ---- REVIEW ---- */
+  function viewReview(){
+    const edits=STATE.queue.filter(q=>(q.kind||"edit")==="edit");
+    const dels=STATE.queue.filter(q=>q.kind==="delete");
+    let h='<div class="vhead"><h1>승인 대기함</h1><p>수정·삭제 요청을 검토·승인하는 곳이에요. 새 스킬은 승인 없이 바로 배포됩니다.</p></div>';
+    h+='<div class="qgrid">';
+    // 수정 제안
+    h+='<section class="qpanel"><div class="rh"><span class="rt edit">✏️ 수정 제안</span><span class="rc">'+edits.length+'건</span></div>';
+    if(!edits.length)h+='<div class="qempty">대기 중인 수정 제안이 없어요.<br>스킬 카드의 <b>✏️ 수정하기</b>를 누르면 여기로 모입니다.</div>';
+    edits.slice().reverse().forEach(q=>{
+      h+='<div class="qcard"><div class="qh"><span class="nm">'+esc(q.skill)+'</span><span class="pill rev">🟡 수정</span><span class="qmeta">✏️ '+esc(q.by)+' · '+esc(q.when)+'</span></div>';
+      if(q.reason)h+='<div class="qnote">💬 '+esc(q.reason)+'</div>';
+      h+='<div class="diff"><div class="box"><div class="bh">현재</div><pre>'+esc(q.oldMd)+'</pre></div><div class="box after"><div class="bh">수정 제안</div><pre>'+esc(q.newMd)+'</pre></div></div>';
+      h+='<div class="qacts"><button class="btn ok" data-act="approve" data-id="'+q.id+'">✅ 승인 · 실제 반영</button><button class="btn danger" data-act="reject" data-id="'+q.id+'">반려</button></div></div>';
+    });
+    h+='</section>';
+    // 삭제 요청
+    h+='<section class="qpanel"><div class="rh"><span class="rt del">🗑️ 삭제 요청</span><span class="rc">'+dels.length+'건</span></div>';
+    if(!dels.length)h+='<div class="qempty">대기 중인 삭제 요청이 없어요.<br>스킬 카드의 <b>🗑️ 삭제하기</b>를 누르면 여기로 모입니다.</div>';
+    dels.slice().reverse().forEach(q=>{
+      h+='<div class="qcard del"><div class="qh"><span class="nm">'+esc(q.skill)+'</span><span class="pill del">🗑️ 삭제</span><span class="qmeta">🗑️ '+esc(q.by)+' · '+esc(q.when)+'</span></div>';
+      if(q.reason)h+='<div class="qnote">💬 '+esc(q.reason)+'</div>';
+      h+='<div class="qnote" style="background:var(--del-bg);border-color:var(--del-line)">⚠️ 승인하면 <b>'+esc(q.skill)+'</b> 스킬 폴더가 실제로 삭제됩니다.</div>';
+      h+='<div class="box"><div class="bh">삭제될 스킬</div><pre>'+esc(q.oldMd||"(내용 없음)")+'</pre></div>';
+      h+='<div class="qacts" style="margin-top:11px"><button class="btn del" data-act="approve" data-id="'+q.id+'">🗑️ 승인 · 실제 삭제</button><button class="btn danger" data-act="reject" data-id="'+q.id+'">반려</button></div></div>';
+    });
+    h+='</section></div>';
+    return h;
+  }
+  async function doApprove(id){const r=await api("/api/approve",{id:Number(id)});if(!r.ok){toast(r.error||"실패");return;}STATE=r.state;toast("승인 · 파일 반영 완료"+slackMsg(r));render();}
+  async function doReject(id){const r=await api("/api/reject",{id:Number(id)});STATE=r.state;toast("반려했어요");render();}
+
+  /* ---- modals ---- */
+  function openModal(html){$("#modal").innerHTML=html;$("#scrim").classList.add("show");$("#modal").querySelectorAll("[data-close]").forEach(x=>x.onclick=closeModal);}
+  function closeModal(){$("#scrim").classList.remove("show");}
+  $("#scrim").addEventListener("click",e=>{if(e.target.id==="scrim")closeModal();});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal();});
+
+  function applySkill(n){const s=getSkill(n);if(!s)return;
+    const trig=(s.t||[]).find(t=>t&&!/^\s*\(/.test(t));
+    if(!trig){toast("이 스킬은 자동 실행 루틴이라 트리거 문구가 없어요");return;}
+    try{navigator.clipboard&&navigator.clipboard.writeText(trig);}catch(e){}
+    try{window.open("https://claude.ai/new?q="+encodeURIComponent(trig),"_blank");}catch(e){}
+    toast("‘"+trig+"’ 복사됨 · 클로드 열림 (안 붙으면 Ctrl+V)");}
+  function openEdit(n){const s=getSkill(n);if(!s)return;
+    openModal('<div class="mh"><span class="nm">✏️ '+esc(s.n)+' 수정</span><button class="x" data-close>✕</button></div><div class="mb"><p class="d">SKILL.md를 고쳐보세요. <b>저장해도 바로 반영되지 않고</b> 승인 대기함으로 넘어갑니다.</p><div class="field"><label>SKILL.md</label><textarea class="md" id="ed">'+esc(s.md)+'</textarea></div><div class="subbtns"><button class="subbtn" id="sgBtn">🤖 클로드로 제안받기</button><button class="subbtn rt" id="rtBtn">🔁 루틴으로 등록</button></div><div class="field"><label>수정 사유 (선택)</label><input class="tin" id="edReason" placeholder="예: 트리거 문구 추가"></div><div class="field"><label>수정한 사람 (수정자)</label><input class="tin" id="edWho" placeholder="이름을 입력하세요"></div></div><div class="mf"><button class="btn ghost" data-close>취소</button><button class="btn pri" id="edSubmit">📝 승인 대기함으로 보내기</button></div>');
+    $("#sgBtn").onclick=()=>openSuggest(s);
+    $("#rtBtn").onclick=()=>openRoutine(s);
+    $("#edSubmit").onclick=async()=>{const nv=$("#ed").value,who=($("#edWho").value||"").trim()||"익명",reason=($("#edReason").value||"").trim();
+      const r=await api("/api/edit",{name:s.n,newMd:nv,by:who,reason:reason});if(!r.ok){toast(r.error||"실패");return;}
+      STATE=r.state;closeModal();toast("승인 대기함으로 보냈어요"+slackMsg(r));VIEW="review";render();};}
+  function openDelete(n){const s=getSkill(n);if(!s)return;
+    openModal('<div class="mh"><span class="nm">🗑️ '+esc(s.n)+' 삭제</span><button class="x" data-close>✕</button></div><div class="mb"><p class="d">이 스킬을 <b>삭제 요청</b>합니다. 바로 삭제되지 않고 <b>승인 대기함</b>으로 넘어가며, 승인 시 실제 파일이 삭제돼요.</p><div class="hintbox" style="background:var(--del-bg);border-color:var(--del-line)">⚠️ <div><b>'+esc(s.n)+'</b> 스킬 폴더가 승인 후 완전히 삭제됩니다.</div></div><div class="field"><label>삭제 사유 (선택)</label><input class="tin" id="delReason" placeholder="예: 더 이상 사용하지 않음"></div><div class="field"><label>요청자</label><input class="tin" id="delWho" placeholder="이름을 입력하세요"></div></div><div class="mf"><button class="btn ghost" data-close>취소</button><button class="btn del" id="delSubmit">🗑️ 삭제 요청 보내기</button></div>');
+    $("#delSubmit").onclick=async()=>{const who=($("#delWho").value||"").trim()||"익명",reason=($("#delReason").value||"").trim();
+      const r=await api("/api/delete_request",{name:s.n,by:who,reason:reason});if(!r.ok){toast(r.error||"실패");return;}
+      STATE=r.state;closeModal();toast("삭제 요청을 승인 대기함으로 보냈어요"+slackMsg(r));VIEW="review";render();};}
+  function openSuggest(s){
+    openModal('<div class="mh"><span class="nm">🤖 '+esc(s.n)+' — 클로드로 제안받기</span><button class="x" data-close>✕</button></div><div class="mb"><p class="d">고치고 싶은 점만 적으면, 클로드가 SKILL.md 수정안을 만들어줄 <b>프롬프트</b>를 만들어 드려요. 복사 → 클로드에 붙여넣기 → 받은 SKILL.md를 수정칸에 붙여넣으면 끝이에요.</p><div class="field"><label>어떤 점이 불편하거나 바꾸고 싶으세요?</label><textarea id="sgTxt" placeholder="예: 트리거 문구를 더 자연스럽게 / 슬랙 채널을 바꾸고 싶어 / 승인 단계 설명 추가"></textarea></div><div class="hintbox">💡 <div>복사되면 <b>클로드 새 대화</b>가 열려요. 붙여넣고, 답으로 받은 <b>markdown 블록</b>을 통째로 수정칸에 붙여넣으세요.</div></div></div><div class="mf"><button class="btn ghost" data-close>취소</button><button class="btn pri" id="sgGo">📋 프롬프트 복사 & 클로드 열기</button></div>');
+    $("#sgGo").onclick=()=>{const c=($("#sgTxt").value||"").trim();if(!c){toast("바꾸고 싶은 점을 적어주세요");return;}
+      const p="아래는 우리 팀 자동화 스킬 \'"+s.n+"\'의 현재 SKILL.md야.\n\n[바꾸고 싶은 점]\n"+c+"\n\n이 요청을 반영해 SKILL.md 전체를 개선해줘. frontmatter(name/description/category/summary)는 유지하되 필요한 부분만 고치고, 결과는 하나의 markdown 코드블록으로 전체 SKILL.md만 출력해줘.\n\n[현재 SKILL.md]\n```markdown\n"+s.md+"\n```";
+      try{navigator.clipboard&&navigator.clipboard.writeText(p);}catch(e){}
+      try{window.open("https://claude.ai/new","_blank");}catch(e){}
+      closeModal();toast("프롬프트 복사됨 · 클로드에 붙여넣으세요 (Ctrl+V)");};}
+  function openRoutine(s){
+    openModal('<div class="mh"><span class="nm">🔁 '+esc(s.n)+' — 루틴 등록</span><button class="x" data-close>✕</button></div><div class="mb"><p class="d">이 스킬을 정해진 주기로 자동 실행되게 등록해요. 등록하면 스킬에 <b>🔁 스케줄</b> 표시가 붙어요.</p><div class="field"><label>실행 주기</label><input class="tin" id="rtFreq" placeholder="예: 매일 오전 9시 / 매주 월 10시 / 30분마다"'+(s.schedule?' value="'+esc(s.schedule)+'"':'')+'><div class="subbtns" id="rtPresets" style="margin-top:8px"><button class="subbtn" data-f="매일 오전 9시">매일 09시</button><button class="subbtn" data-f="매주 월요일 오전 10시">매주 월 10시</button><button class="subbtn" data-f="매월 1일 오전 9시">매월 1일</button><button class="subbtn" data-f="30분마다">30분마다</button><button class="subbtn" data-f="1시간마다">1시간마다</button></div></div><div class="field"><label>등록자</label><input class="tin" id="rtWho" placeholder="이름을 입력하세요"></div><div class="hintbox">📌 <div>발송·결제·디자인 선택처럼 <b>사람 검수가 필요한 작업</b>은 무인 루틴을 권장하지 않아요.</div></div></div><div class="mf"><button class="btn ghost" data-close>취소</button><button class="btn pri" id="rtGo" style="background:var(--routine);border-color:var(--routine)">🔁 루틴 등록</button></div>');
+    $("#rtPresets").onclick=e=>{const b=e.target.closest("[data-f]");if(!b)return;$("#rtFreq").value=b.dataset.f;$("#rtFreq").focus();};
+    $("#rtGo").onclick=async()=>{const freq=($("#rtFreq").value||"").trim(),who=($("#rtWho").value||"").trim()||"익명";
+      if(!freq){toast("실행 주기를 입력해주세요");return;}
+      const r=await api("/api/set_routine",{name:s.n,on:true,schedule:freq,by:who});if(!r.ok){toast(r.error||"실패");return;}
+      STATE=r.state;toast("루틴 등록됨"+slackMsg(r));render();
+      openModal('<div class="mh"><span class="nm">🔁 루틴 등록 완료</span><button class="x" data-close>✕</button></div><div class="mb"><p class="d">대시보드에 <b>🔁 스케줄</b> 표시가 붙었어요. <b>실제 자동 실행</b>까지 걸려면 아래 명령을 클로드에 붙여넣어 최종 등록하세요.</p><div class="codeblk">'+esc(r.cmd||"")+'</div></div><div class="mf"><button class="btn ghost" data-close>닫기</button><button class="btn pri" id="rtCp">📋 명령 복사</button></div>');
+      $("#rtCp").onclick=()=>copy(r.cmd||"","명령");};}
+
+  /* ---- WIZARD ---- */
+  function mountWizard(app){
+    const steps=[
+      {key:"cat",title:"어떤 팀 업무인가요?",sub:"스킬이 저장될 카테고리를 골라요.",type:"single",opts:[{v:"기획팀공통",t:"📋 기획팀공통",s:"팀 전체가 함께 쓰는 업무"},{v:"미디어",t:"📡 미디어",s:"매체·광고 운영 업무"},{v:"HR",t:"🧑‍💼 HR",s:"인사·조직 업무"},{v:"개인",t:"🙋 개인",s:"내 개인 반복 업무"}]},
+      {key:"desc",title:"무엇을 자동화하고 싶나요?",sub:"구체적으로 적을수록 좋아요.",type:"text",ph:"예: 매주 월요일 지난주 광고 성과를 요약해 슬랙 #보고 채널에 올리고 싶어"},
+      {key:"trigger",title:"어떤 말로 부를까요?",sub:"이 스킬을 실행시킬 트리거 문구예요.",type:"text",ph:"예: 주간 성과 요약해줘"},
+      {key:"integ",title:"외부 연동이 필요한가요?",sub:"해당되는 걸 모두 골라요.",type:"multi",opts:[{v:"Slack",t:"Slack"},{v:"Gmail",t:"Gmail"},{v:"Drive",t:"Google Drive"},{v:"Sheets",t:"Google Sheets"},{v:"Calendar",t:"Calendar"},{v:"Notion",t:"Notion"},{v:"없음",t:"없음"}]},
+      {key:"human",title:"사람이 최종 확인해야 하나요?",sub:"발송·결제·게시 같은 동작은 확인을 권장해요.",type:"single",opts:[{v:"확인 후 진행",t:"🙋 확인 후 진행",s:"실행 전 사람이 승인 (안전)"},{v:"자동 실행",t:"⚙️ 자동 실행",s:"확인 없이 바로 실행"}]},
+      {key:"routine",title:"정해진 주기로 자동 실행할까요?",sub:"루틴으로 등록하면 알아서 반복 실행돼요.",type:"single",opts:[{v:"yes",t:"🔁 네, 주기적으로",s:"매일/매주 등 자동 반복"},{v:"no",t:"✋ 아니요, 필요할 때만",s:"내가 직접 부를게요"}]},
+      {key:"meta",title:"마지막! 이름과 생성자",sub:"스킬 이름은 영문 kebab-case를 권장해요.",type:"final"}
+    ];
+    let i=0;const ans={integ:[]};let routineFreq="";
+    function draw(){
+      const st=steps[i];let h='<div class="wiz"><div class="prog">';
+      steps.forEach((_,k)=>h+='<div class="seg '+(k<i?"done":k===i?"cur":"")+'"></div>');
+      h+='<span class="lbl">'+(i+1)+" / "+steps.length+'</span></div><div class="wcard"><div class="wstep"><h2>'+esc(st.title)+'</h2><p class="sub">'+esc(st.sub)+'</p>';
+      if(st.type==="single"||st.type==="multi"){h+='<div class="opts">';st.opts.forEach(o=>{const sel=st.type==="multi"?ans.integ.includes(o.v):ans[st.key]===o.v;h+='<button class="opt '+(sel?"sel":"")+'" data-v="'+esc(o.v)+'"><div class="ot">'+esc(o.t)+'<span class="chk">✓</span></div>'+(o.s?'<div class="os">'+esc(o.s)+'</div>':'')+'</button>';});h+='</div>';}
+      else if(st.type==="text"){h+='<div class="field"><textarea id="wt" placeholder="'+esc(st.ph)+'">'+esc(ans[st.key]||"")+'</textarea></div>';}
+      else{h+='<div class="field"><label>스킬 이름</label><input class="tin" id="wname" placeholder="weekly-perf-summary" value="'+esc(ans.name||"")+'"></div><div class="field"><label>생성자 이름</label><input class="tin" id="wowner" placeholder="이름" value="'+esc(ans.owner||"")+'"></div><div class="hintbox">✨ <div><b>거의 다 됐어요!</b> 완료를 누르면 SKILL.md가 만들어져 <b>바로 팀에 배포</b>되고, 스킬 목록에 자동 분류돼 올라가요. (생성일·생성자 기록 + 슬랙 알림)</div></div>';}
+      if(ans.human==="확인 후 진행"&&st.key==="routine")h+='<div class="hintbox">🙋 <div><b>확인 후 진행</b>을 고르셨어요. 사람 검수가 필요한 작업은 무인 루틴을 권장하지 않아요.</div></div>';
+      if(st.key==="routine"&&ans.routine==="yes")h+='<div class="field" style="margin-top:14px"><label>실행 주기</label><input class="tin" id="wfreq" placeholder="예: 매주 월요일 오전 10시" value="'+esc(routineFreq)+'"></div>';
+      h+='</div><div class="wnav"><button class="btn ghost" id="wback"'+(i===0?" disabled style=opacity:.4":"")+'>← 이전</button><button class="btn pri" id="wnext">'+(i===steps.length-1?"✨ 완료 · 바로 배포":"다음 →")+'</button></div></div></div>';
+      app.innerHTML=h;
+      app.querySelectorAll(".opt").forEach(o=>o.onclick=()=>{const v=o.dataset.v;
+        if(st.type==="multi"){if(v==="없음")ans.integ=["없음"];else{ans.integ=ans.integ.filter(x=>x!=="없음");const k=ans.integ.indexOf(v);k>=0?ans.integ.splice(k,1):ans.integ.push(v);}draw();}
+        else{ans[st.key]=v;if(st.key==="routine"||st.key==="human")draw();else next();}});
+      const fq=$("#wfreq");if(fq)fq.oninput=e=>routineFreq=e.target.value;
+      $("#wback").onclick=()=>{if(i>0){i--;draw();}};$("#wnext").onclick=next;
     }
-  });
-  $("#q").addEventListener("input",e=>{Q=e.target.value;render();});
-  const tb=$("#themeBtn");let theme=localStorage.getItem("catalog.theme")||"";
+    function next(){const st=steps[i];
+      if(st.type==="text"){const v=($("#wt").value||"").trim();if(!v){toast("내용을 입력해주세요");return;}ans[st.key]=v;}
+      if(st.type==="single"&&!ans[st.key]){toast("하나를 선택해주세요");return;}
+      if(st.type==="multi"&&!ans.integ.length){toast("하나 이상 선택 (없으면 '없음')");return;}
+      if(st.type==="final"){ans.name=($("#wname").value||"").trim();ans.owner=($("#wowner").value||"").trim();if(!ans.name){toast("스킬 이름을 입력해주세요");return;}if(!ans.owner){toast("생성자 이름을 입력해주세요");return;}finish();return;}
+      if(i<steps.length-1){i++;draw();}}
+    async function finish(){
+      const integ=ans.integ.filter(x=>x!=="없음");
+      const summary=((ans.desc.replace(/\s+/g," ").trim().split(/(?<=[.!?다요])\s/)[0])||ans.desc).slice(0,60);
+      const md="---\nname: "+ans.name+"\ndescription: "+ans.desc+' 트리거: "'+ans.trigger+'".\nsummary: '+summary+"\ncategory: "+ans.cat+"\n---\n\n## 트리거\n- \""+ans.trigger+"\"\n\n## 동작\n"+ans.desc+"\n\n"+(integ.length?"## 연동\n"+integ.map(x=>"- "+x).join("\n")+"\n\n":"")+"## 사람 확인\n"+ans.human+"\n"+(ans.routine==="yes"?"\n## 루틴\n"+(routineFreq||"(주기 미지정)")+"\n":"");
+      const r=await api("/api/create",{name:ans.name,category:ans.cat,description:ans.desc,triggers:[ans.trigger],md:md,author:ans.owner});
+      if(!r.ok){toast(r.error||"실패");return;}
+      STATE=r.state;
+      app.innerHTML='<div class="wiz"><div class="wcard"><div class="wstep"><h2>🎉 배포 완료!</h2><p class="sub"><b>'+esc(ans.name)+'</b> 스킬이 만들어져 <b>'+esc(ans.cat)+'</b>에 바로 올라갔어요.'+(r.slack&&r.slack.sent?" 슬랙 알림도 전송됐어요.":"")+'</p><div class="field"><label>생성된 SKILL.md</label><div class="codeblk">'+esc(md)+'</div></div><div class="hintbox">📌 <div>스킬 목록에서 확인할 수 있어요. 새 대화에서 트리거 문구를 말하면 바로 실행됩니다.</div></div><div class="wnav"><button class="btn ghost" id="again">＋ 새 스킬 또 만들기</button><button class="btn pri" id="go">📚 스킬 목록 보기</button></div></div></div></div>';
+      $("#again").onclick=()=>{VIEW="create";render();};$("#go").onclick=()=>{VIEW="skills";render();};
+      toast("스킬 생성·배포 완료"+slackMsg(r));
+    }
+    draw();
+  }
+
+  /* ---- nav + theme ---- */
+  $("#tabs").addEventListener("click",e=>{const t=e.target.closest(".tab");if(!t)return;VIEW=t.dataset.view;render();});
+  const tb=$("#themeBtn");let theme=localStorage.getItem("station.theme")||"";
   function applyTheme(){if(theme)document.documentElement.setAttribute("data-theme",theme);else document.documentElement.removeAttribute("data-theme");}
   applyTheme();
-  tb.onclick=()=>{const cur=theme||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");theme=cur==="dark"?"light":"dark";localStorage.setItem("catalog.theme",theme);applyTheme();};
-  render();
+  tb.onclick=()=>{const cur=theme||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");theme=cur==="dark"?"light":"dark";localStorage.setItem("station.theme",theme);applyTheme();};
+
+  refresh();
 })();
 </script>
 </body>
